@@ -2,168 +2,162 @@ import random
 import json
 import pandas as pd
 
-# global
-TRIALS_PER_SET = 100
-TOTAL_SETS = 500
-RED_TRIALS = 30  
 
-# defining the stimuli
+# global variables to be manipulated
+stimulus_set = []
+relay = 0
+
+# defining stimulus set
 vertical_con_list = [
-    {"prime": "le\nle\nle", "probe": "le", "congruency": "congruent", "correct_response": "n", "name": "vertical_con_1", "color": "black"},
-    {"prime": "fel\nfel\nfel", "probe": "fel", "congruency": "congruent", "correct_response": "j", "name": "vertical_con_2", "color": "black"}
+    {"prime": "le\nle\nle", "probe": "le", "congruency": "congruent", "correct_response": "n", "name": "black_vertical_con_1"},
+    {"prime": "fel\nfel\nfel", "probe": "fel", "congruency": "congruent", "correct_response": "j", "name": "vertical_con_2"}
 ]
 vertical_inc_list = [
-    {"prime": "fel\nfel\nfel", "probe": "le", "congruency": "incongruent", "correct_response": "n", "name": "vertical_incon_1", "color": "black"},
-    {"prime": "le\nle\nle", "probe": "fel", "congruency": "incongruent", "correct_response": "j", "name": "vertical_incon_2", "color": "black"}
+    {"prime": "fel\nfel\nfel", "probe": "le", "congruency": "incongruent", "correct_response": "n", "name": "black_vertical_incon_1"},
+    {"prime": "le\nle\nle", "probe": "fel", "congruency": "incongruent", "correct_response": "j", "name": "black_vertical_incon_2"}
+
 ]
+
 horizontal_con_list = [
-    {"prime": "bal\nbal\nbal", "probe": "bal", "congruency": "congruent", "correct_response": "f", "name": "horizontal_con_1", "color": "black"},
-    {"prime": "jobb\njobb\njobb", "probe": "jobb", "congruency": "congruent", "correct_response": "g", "name": "horizontal_con_2", "color": "black"}
+    {"prime": "bal\nbal\nbal", "probe": "bal", "congruency": "congruent", "correct_response": "f", "name": "black_horizontal_con_1"},
+    {"prime": "jobb\njobb\njobb", "probe": "jobb", "congruency": "congruent", "correct_response": "g", "name": "black_horizontal_con_2"}
 ]
 horizontal_incon_list = [
-    {"prime": "bal\nbal\nbal", "probe": "jobb", "congruency": "incongruent", "correct_response": "g", "name": "horizontal_incon_1", "color": "black"},
-    {"prime": "jobb\njobb\njobb", "probe": "bal", "congruency": "incongruent", "correct_response": "f", "name": "horizontal_incon_2", "color": "black"}
+    {"prime": "bal\nbal\nbal", "probe": "jobb", "congruency": "incongruent", "correct_response": "g",
+     "name": "black_horizontal_incon_1"},
+    {"prime": "jobb\njobb\njobb", "probe": "bal", "congruency": "incongruent", "correct_response": "f",
+     "name": "black_horizontal_incon_2"}
 ]
 
-# defining the red stimuli
+# red stimuli
 red_vertical_con = [
-    {"prime": "le\nle\nle", "probe": "le", "congruency": "congruent", "correct_response": "n", "name": "red_vertical_con_1", "color": "red"},
-    {"prime": "fel\nfel\nfel", "probe": "fel", "congruency": "congruent", "correct_response": "i", "name": "red_vertical_con_2", "color": "red"}
+    {"prime":"le", "probe":"le", "congruency":"congruent", "correct_response":"n", "name":"red_vertical_con_1", "color":"red"},
+    {"prime":"fel", "probe":"fel", "congruency":"congruent", "correct_response":"i", "name":"red_vertical_con_2", "color":"red"}
 ]
 red_vertical_incon = [
-    {"prime": "fel\nfel\nfel", "probe": "le", "congruency": "incongruent", "correct_response": "n", "name": "red_vertical_incon_1", "color": "red"},
-    {"prime": "le\nle\nle", "probe": "fel", "congruency": "incongruent", "correct_response": "i", "name": "red_vertical_incon_2", "color": "red"}
+    {"prime":"fel", "probe":"le", "congruency":"incongruent", "correct_response":"n", "name":"red_vertical_incon_1", "color":"red"},
+    {"prime":"le", "probe":"fel", "congruency":"incongruent", "correct_response":"i", "name":"red_vertical_incon_2", "color":"red"}
 ]
+
 red_horizontal_con = [
-    {"prime": "bal\nbal\nbal", "probe": "bal", "congruency": "congruent", "correct_response": "d", "name": "red_horizontal_con_1", "color": "red"},
-    {"prime": "jobb\njobb\njobb", "probe": "jobb", "congruency": "congruent", "correct_response": "a", "name": "red_horizontal_con_2", "color": "red"}
+    {"prime":"bal", "probe":"bal", "congruency":"congruent", "correct_response":"d", "name":"red_horizontal_con_1", "color":"red"},
+    {"prime":"jobb", "probe":"jobb", "congruency":"congruent", "correct_response":"a", "name":"red_horizontal_con_2", "color":"red"}
 ]
 red_horizontal_incon = [
-    {"prime": "bal\nbal\nbal", "probe": "jobb", "congruency": "incongruent", "correct_response": "d", "name": "red_horizontal_incon_1", "color": "red"},
-    {"prime": "jobb\njobb\njobb", "probe": "bal", "congruency": "incongruent", "correct_response": "a", "name": "red_horizontal_incon_2", "color": "red"}
+    {"prime":"bal", "probe":"jobb", "congruency":"incongruent", "correct_response":"d", "name":"red_horizontal_incon_1", "color":"red"},
+    {"prime":"jobb", "probe":"bal", "congruency":"incongruent", "correct_response":"a", "name":"red_horizontal_incon_2", "color":"red"}
 ]
 
+# grouping congruent and incongruent stimuli together
+vertical_group = [vertical_con_list, vertical_inc_list, red_vertical_con, red_vertical_incon]
+horizontal_group = [horizontal_con_list, horizontal_incon_list, red_horizontal_con, red_horizontal_incon]
 
-# helping function to split 100 into halves
-def half_split(n):
-    return n // 2, n - n // 2
+def stimulus_finder(group, allow_red=True):
+    global stimulus_set
 
+    # red trials are 30% of all trials
+    is_red = allow_red and (random.random() < 0.3)
 
-# generating a single trial block
-def generate_trial_block(trial_count=TRIALS_PER_SET):
-    random.seed()  # ensure fresh randomness each time
+    if is_red:
+        # choosing from red lists
+        chosen_list = random.choice(group[2:4])
+    else:
+        # choosing from neutral lists
+        chosen_list = random.choice(group[0:2])
 
-    red_total = RED_TRIALS
-    non_red_total = trial_count - red_total
-    vertical_total = trial_count // 2
-    horizontal_total = trial_count - vertical_total
-
-    # red distribution
-    red_con_total = red_total // 2
-    red_inc_total = red_total - red_con_total
-    red_vertical_total = red_total // 2
-    red_horizontal_total = red_total - red_vertical_total
-
-    v_red_con = red_con_total // 2
-    h_red_con = red_con_total - v_red_con
-    v_red_inc = red_vertical_total - v_red_con
-    h_red_inc = red_horizontal_total - h_red_con
-
-    # neutral (black) distribution
-    non_red_vertical_total = vertical_total - red_vertical_total
-    non_red_horizontal_total = horizontal_total - red_horizontal_total
-
-    non_red_con_total, non_red_inc_total = half_split(non_red_total)
-
-    v_non_con = int(non_red_con_total * (non_red_vertical_total / non_red_total))
-    v_non_inc = int(non_red_inc_total * (non_red_vertical_total / non_red_total))
-    h_non_con = non_red_con_total - v_non_con
-    h_non_inc = non_red_inc_total - v_non_inc
-
-    # fix rounding drift
-    while (v_non_con + v_non_inc) != non_red_vertical_total:
-        v_non_inc += 1 if (v_non_con + v_non_inc) < non_red_vertical_total else -1
-    while (h_non_con + h_non_inc) != non_red_horizontal_total:
-        h_non_inc += 1 if (h_non_con + h_non_inc) < non_red_horizontal_total else -1
-
-    # sample trials (with replacement)
-    red_trials = (
-        random.choices(red_vertical_con, k=v_red_con) +
-        random.choices(red_vertical_incon, k=v_red_inc) +
-        random.choices(red_horizontal_con, k=h_red_con) +
-        random.choices(red_horizontal_incon, k=h_red_inc)
-    )
-
-    non_red_trials = (
-        random.choices(vertical_con_list, k=v_non_con) +
-        random.choices(vertical_inc_list, k=v_non_inc) +
-        random.choices(horizontal_con_list, k=h_non_con) +
-        random.choices(horizontal_incon_list, k=h_non_inc)
-    )
-
-    # combine and shuffle everything
-    all_trials = red_trials + non_red_trials
-    random.shuffle(all_trials)
-
-    # ensure no two red trials are consecutive
-    for i in range(1, len(all_trials)):
-        if all_trials[i]["color"] == "red" and all_trials[i - 1]["color"] == "red":
-            for j in range(i + 1, len(all_trials)):
-                if all_trials[j]["color"] != "red" and (j == len(all_trials) - 1 or all_trials[j + 1]["color"] != "red"):
-                    all_trials[i], all_trials[j] = all_trials[j], all_trials[i]
-                    break
-
-    # adding one guaranteed black trial at the beginning
-    first_black_trial = random.choice(
-        vertical_con_list + vertical_inc_list + horizontal_con_list + horizontal_incon_list
-    )
-    all_trials.insert(0, first_black_trial)
-
-    return all_trials
+    stimulus = random.choice(chosen_list)
+    stimulus_set.append(stimulus)
 
 
-# double checking the balance of a trial block
-def check_balance(trials):
-    df = pd.DataFrame(trials)
-    red_df = df[df.get("color") == "red"]
-    non_red_df = df[df.get("color") != "red"]
+def set_factory(times):
+    global stimulus_set
+    global relay
 
-    def count_df(sub_df):
-        return {
-            "congruent": (sub_df["congruency"] == "congruent").sum(),
-            "incongruent": (sub_df["congruency"] == "incongruent").sum(),
-            "vertical": sub_df["name"].str.contains("vertical").sum(),
-            "horizontal": sub_df["name"].str.contains("horizontal").sum()
-        }
-
-    return {"red": count_df(red_df), "non_red": count_df(non_red_df)}
+    for i in range(times):
+        # first trial must be neutral
+        allow_red = i != 0
+        if relay == 0:
+            stimulus_finder(horizontal_group, allow_red)
+            relay = 1
+        else:
+            stimulus_finder(vertical_group, allow_red)
+            relay = 0
 
 
-# saving to json and generating the file if not found
-def save_trials_to_json(all_sets, file_path="trials.json"):
-    try:
-        with open(file_path, "r") as f:
-            file_data = json.load(f)
-        if "trials" not in file_data:
-            file_data = {"trials": []}
-    except (FileNotFoundError, json.JSONDecodeError):
-        file_data = {"trials": []}
-    file_data["trials"].extend(all_sets)
-    with open(file_path, "w") as f:
-        json.dump(file_data, f, indent=2)
+def group_relay():
+    global relay
+    if relay == 0:
+        stimulus_finder(horizontal_group)
+        relay = 1
+    else:
+        stimulus_finder(vertical_group)
+        relay = 0
 
 
-# generating all the trial sets
-all_trial_sets = []
-for i in range(TOTAL_SETS):
-    block = generate_trial_block()
-    stats = check_balance(block)
-    all_trial_sets.append(block)
-    print(f"Set {i+1}:")
-    print(f"   Red:    Cong={stats['red']['congruent']}, Incon={stats['red']['incongruent']}, "
-          f"V/H={stats['red']['vertical']}/{stats['red']['horizontal']}")
-    print(f"   Neutral: Cong={stats['non_red']['congruent']}, Incon={stats['non_red']['incongruent']}, "
-          f"V/H={stats['non_red']['vertical']}/{stats['non_red']['horizontal']}")
+def set_factory(times):
+    for i in range(times):
+        group_relay()
 
-save_trials_to_json(all_trial_sets)
-print(f"\nDone, {len(all_trial_sets)} sets saved to trials.json")
+
+trial_rate = []
+trial_count = 90
+
+
+def factor():
+    global trial_rate
+    global trial_count
+    set_factory(trial_count)
+    con_count = 0
+    incon_count = 0
+    for i in stimulus_set:
+        if i["congruency"] == "congruent":
+            con_count += 1
+        elif i["congruency"] == "incongruent":
+            incon_count += 1
+    con = con_count / trial_count
+    incon = incon_count / trial_count
+    trial_rate = [con, incon]
+    
+    factor()
+
+
+# double check for red balance ~ serious vibe coding shit
+def check_red_balance():
+    df = pd.DataFrame(stimulus_set)
+    red_trials = df[df.get("color") == "red"]
+
+    counts = red_trials.groupby(["congruency"]).size()
+    print("Red congruency counts:\n", counts)
+
+    hv_counts = []
+    for s in stimulus_set:
+        if "color" in s and s["color"] == "red":
+            hv_counts.append("horizontal" if "horizontal" in s["name"] else "vertical")
+    hv_df = pd.Series(hv_counts).value_counts()
+    print("Red orientation counts:\n", hv_df)
+
+match_count = 0
+while True:
+    if trial_rate == [0.5, 0.5]:
+        group_relay()
+        trial_block = pd.DataFrame(stimulus_set, columns=["prime", "probe", "congruency", "correct_response"])
+        trial_block["previous_congruency"] = trial_block["congruency"].shift(1)
+        trial_block["con_pair"] = trial_block["previous_congruency"] + "-" + trial_block["congruency"]
+        pair_counts = trial_block["con_pair"].value_counts()
+        if pair_counts["congruent-congruent"] == 20 and pair_counts["congruent-incongruent"] == 20 and pair_counts[
+            "incongruent-congruent"] == 20 and pair_counts["incongruent-incongruent"] == 20:
+            match_count += 1
+            print("Match found: {}".format(match_count))
+            print("Correct paircount found, writing...")
+            with open("trials.json", "r+") as file:
+                # First we load existing data into a dictionary
+                file_data = json.load(file)
+                # join new_data with file_data inside emp_details
+                file_data["trials"].append(stimulus_set)
+                # Sets file's current position at offset.
+                file.seek(0)
+                # convert back to json.
+                json.dump(file_data, file)
+
+    stimulus_set = []
+    factor()

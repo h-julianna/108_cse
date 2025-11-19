@@ -14,7 +14,7 @@
         <script src='jspsych/dist/plugin-call-function.js'></script>
         <link href='jspsych/dist/jspsych.css' rel='stylesheet' type='text/css' />
         <link href='styles.css' rel='stylesheet' type='text/css' />
-        <script src="jatos.js"></script>
+        <!-- <script src="jatos.js"></script> -->
 
     </head>
   <body>
@@ -27,26 +27,9 @@
       const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
 
-   /* jatos.onLoad(() => {
-    console.log(jatos.version)}); */
-
+   
       const jsPsych = initJsPsych({
-      /*  on_trial_start: function() {
-        const params = jatos.urlQueryParameters || {};
-        const jatosdebug = params.debug;
-        console.log(jatosdebug)
-        if (jatosdebug == 1) {
-          probe_duration = 1;
-          prime_duration = 1;
-          feedback_duration = 1;
-          blank_duration = 1;
-          probe_stim_duration = 1;
-          debug = 1;
-      }
-
-      console.log(probe_duration);
-    },
- */
+    
     on_finish: () => {
       jatos.endStudyAndRedirect("https://forms.gle/AKSpNSLcB9VzeLEDA", jsPsych.data.get().csv());
     }
