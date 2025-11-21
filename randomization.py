@@ -7,50 +7,128 @@ import pandas as pd
 stimulus_set = []
 relay = 0
 
-# defining stimulus set
-vertical_con_list = [
+#defining stimulus set
+#black stimuli
+black_vertical_con = [
     {"prime": "le\nle\nle", "probe": "le", "congruency": "congruent", "correct_response": "n", "name": "black_vertical_con_1"},
     {"prime": "fel\nfel\nfel", "probe": "fel", "congruency": "congruent", "correct_response": "j", "name": "vertical_con_2"}
 ]
-vertical_inc_list = [
+black_vertical_inc = [
     {"prime": "fel\nfel\nfel", "probe": "le", "congruency": "incongruent", "correct_response": "n", "name": "black_vertical_incon_1"},
     {"prime": "le\nle\nle", "probe": "fel", "congruency": "incongruent", "correct_response": "j", "name": "black_vertical_incon_2"}
 
 ]
 
-horizontal_con_list = [
+black_horizontal_con = [
     {"prime": "bal\nbal\nbal", "probe": "bal", "congruency": "congruent", "correct_response": "f", "name": "black_horizontal_con_1"},
     {"prime": "jobb\njobb\njobb", "probe": "jobb", "congruency": "congruent", "correct_response": "g", "name": "black_horizontal_con_2"}
 ]
-horizontal_incon_list = [
+black_horizontal_incon = [
     {"prime": "bal\nbal\nbal", "probe": "jobb", "congruency": "incongruent", "correct_response": "g",
      "name": "black_horizontal_incon_1"},
     {"prime": "jobb\njobb\njobb", "probe": "bal", "congruency": "incongruent", "correct_response": "f",
      "name": "black_horizontal_incon_2"}
 ]
 
-# red stimuli
 red_vertical_con = [
     {"prime":"le", "probe":"le", "congruency":"congruent", "correct_response":"n", "name":"red_vertical_con_1", "color":"red"},
-    {"prime":"fel", "probe":"fel", "congruency":"congruent", "correct_response":"i", "name":"red_vertical_con_2", "color":"red"}
+    {"prime":"fel", "probe":"fel", "congruency":"congruent", "correct_response":"e", "name":"red_vertical_con_2", "color":"red"}
 ]
 red_vertical_incon = [
     {"prime":"fel", "probe":"le", "congruency":"incongruent", "correct_response":"n", "name":"red_vertical_incon_1", "color":"red"},
-    {"prime":"le", "probe":"fel", "congruency":"incongruent", "correct_response":"i", "name":"red_vertical_incon_2", "color":"red"}
+    {"prime":"le", "probe":"fel", "congruency":"incongruent", "correct_response":"e", "name":"red_vertical_incon_2", "color":"red"}
 ]
 
 red_horizontal_con = [
-    {"prime":"bal", "probe":"bal", "congruency":"congruent", "correct_response":"d", "name":"red_horizontal_con_1", "color":"red"},
+    {"prime":"bal", "probe":"bal", "congruency":"congruent", "correct_response":"l", "name":"red_horizontal_con_1", "color":"red"},
     {"prime":"jobb", "probe":"jobb", "congruency":"congruent", "correct_response":"a", "name":"red_horizontal_con_2", "color":"red"}
 ]
 red_horizontal_incon = [
-    {"prime":"bal", "probe":"jobb", "congruency":"incongruent", "correct_response":"d", "name":"red_horizontal_incon_1", "color":"red"},
+    {"prime":"bal", "probe":"jobb", "congruency":"incongruent", "correct_response":"l", "name":"red_horizontal_incon_1", "color":"red"},
     {"prime":"jobb", "probe":"bal", "congruency":"incongruent", "correct_response":"a", "name":"red_horizontal_incon_2", "color":"red"}
 ]
 
+#green stimuli
+green_vertical_con = [
+    {"prime":"le", "probe":"le", "congruency":"congruent", "correct_response":"n", "name":"green_vertical_con_1", "color":"green"},
+    {"prime":"fel", "probe":"fel", "congruency":"congruent", "correct_response":"e", "name":"green_vertical_con_2", "color":"green"}
+]
+green_vertical_incon = [
+    {"prime":"fel", "probe":"le", "congruency":"incongruent", "correct_response":"n", "name":"green_vertical_incon_1", "color":"green"},
+    {"prime":"le", "probe":"fel", "congruency":"incongruent", "correct_response":"e", "name":"green_vertical_incon_2", "color":"green"}
+]
+
+green_horizontal_con = [
+    {"prime":"bal", "probe":"bal", "congruency":"congruent", "correct_response":"l", "name":"green_horizontal_con_1", "color":"green"},
+    {"prime":"jobb", "probe":"jobb", "congruency":"congruent", "correct_response":"a", "name":"green_horizontal_con_2", "color":"green"}
+]
+green_horizontal_incon = [
+    {"prime":"bal", "probe":"jobb", "congruency":"incongruent", "correct_response":"l", "name":"green_horizontal_incon_1", "color":"green"},
+    {"prime":"jobb", "probe":"bal", "congruency":"incongruent", "correct_response":"a", "name":"green_horizontal_incon_2", "color":"green"}
+]
+
+#yellow stimuli idk
+yellow_vertical_con = [
+    {"prime":"le", "probe":"le", "congruency":"congruent", "correct_response":"n", "name":"yellow_vertical_con_1", "color":"yellow"},
+    {"prime":"fel", "probe":"fel", "congruency":"congruent", "correct_response":"e", "name":"yellow_vertical_con_2", "color":"yellow"}
+]
+yellow_vertical_incon = [
+    {"prime":"fel", "probe":"le", "congruency":"incongruent", "correct_response":"n", "name":"yellow_vertical_incon_1", "color":"yellow"},
+    {"prime":"le", "probe":"fel", "congruency":"incongruent", "correct_response":"e", "name":"yellow_vertical_incon_2", "color":"yellow"}
+]
+
+yellow_horizontal_con = [
+    {"prime":"bal", "probe":"bal", "congruency":"congruent", "correct_response":"l", "name":"yellow_horizontal_con_1", "color":"yellow"},
+    {"prime":"jobb", "probe":"jobb", "congruency":"congruent", "correct_response":"a", "name":"yellow_horizontal_con_2", "color":"yellow"}
+]
+yellow_horizontal_incon = [
+    {"prime":"bal", "probe":"jobb", "congruency":"incongruent", "correct_response":"l", "name":"yellow_horizontal_incon_1", "color":"yellow"},
+    {"prime":"jobb", "probe":"bal", "congruency":"incongruent", "correct_response":"a", "name":"yellow_horizontal_incon_2", "color":"yellow"}
+]
+
+#blue stimuli idk
+blue_vertical_con = [
+    {"prime":"le", "probe":"le", "congruency":"congruent", "correct_response":"n", "name":"blue_vertical_con_1", "color":"blue"},
+    {"prime":"fel", "probe":"fel", "congruency":"congruent", "correct_response":"e", "name":"blue_vertical_con_2", "color":"blue"}
+]
+blue_vertical_incon = [
+    {"prime":"fel", "probe":"le", "congruency":"incongruent", "correct_response":"n", "name":"blue_vertical_incon_1", "color":"blue"},
+    {"prime":"le", "probe":"fel", "congruency":"incongruent", "correct_response":"e", "name":"blue_vertical_incon_2", "color":"blue"}
+]
+
+blue_horizontal_con = [
+    {"prime":"bal", "probe":"bal", "congruency":"congruent", "correct_response":"l", "name":"blue_horizontal_con_1", "color":"blue"},
+    {"prime":"jobb", "probe":"jobb", "congruency":"congruent", "correct_response":"a", "name":"blue_horizontal_con_2", "color":"blue"}
+]
+blue_horizontal_incon = [
+    {"prime":"bal", "probe":"jobb", "congruency":"incongruent", "correct_response":"l", "name":"blue_horizontal_incon_1", "color":"blue"},
+    {"prime":"jobb", "probe":"bal", "congruency":"incongruent", "correct_response":"a", "name":"blue_horizontal_incon_2", "color":"blue"}
+]
+
 # grouping congruent and incongruent stimuli together
-vertical_group = [vertical_con_list, vertical_inc_list, red_vertical_con, red_vertical_incon]
-horizontal_group = [horizontal_con_list, horizontal_incon_list, red_horizontal_con, red_horizontal_incon]
+vertical_group = [
+    black_vertical_con,
+    black_vertical_inc,
+    red_vertical_con,
+    red_vertical_incon,
+    green_vertical_con,
+    green_vertical_incon,
+    yellow_vertical_con,
+    yellow_vertical_incon,
+    blue_vertical_con,
+    blue_vertical_incon]
+
+horizontal_group = [
+    black_horizontal_con,
+    black_horizontal_incon,
+    red_horizontal_con,
+    red_horizontal_incon,
+    green_horizontal_con,
+    green_horizontal_incon,
+    yellow_horizontal_con,
+    yellow_horizontal_incon,
+    blue_horizontal_con,
+    blue_horizontal_incon]
 
 def stimulus_finder(group, allow_red=True):
     global stimulus_set
