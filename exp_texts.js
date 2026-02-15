@@ -85,7 +85,12 @@ const experiment_text = {"hun":{
         		Ne feledd, <span style="color: #FF3B3B; font-weight: bold;">piros</span> próbák esetén 17 garast vonunk le tőled.<br>
         		<span style="color: #00E676; font-weight: bold;">Zöld</span> próbák esetén 17 garast kapsz.<br>
         		Ha készen állsz, nyomd meg a space billentyűt a kezdéshez.<span style="display:inline-block; width:100%;"></span></p></div>
-        		<img src="images/instruction_pic.png" alt="Hand placement instructions" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 55%;max-width: 600px;">`,},
+        		<img src="images/instruction_pic.png" alt="Hand placement instructions" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 55%;max-width: 600px;">`,
+	"debrief":`<div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px;">
+				<p style="font-weight: bold; font-size: 28px; margin-bottom: 25px;"> <h3>Kedves Résztvevő!</h3></p>
+				<p>Köszönjük, hogy részt vettél a kutatásunkban! Ebben a kísérletben arra voltunk kíváncsiak, hogy a jutalmazó, illetve büntető ingerek miként befolyásolják a reakcióidőt ebben a válaszinterferencia feladatban.</p>
+				<p>A részvételednek köszönhetően lehetöségünk van megvizsgálni, azt hogy a büntetetés és a jutalmazás milyen hatással van agyunk egyik alapvető adaptációs mechanizmusára, melyet kognitív kontrollnak nevezünk. </p> 
+				<p>Ha bármilyen észrevételed, vagy kérdésed lenne a kutatással kapcsolatban írj a <a href="mailto:bognar.miklos@ppk.elte.hu">bognar.miklos@ppk.elte.hu</a>címre!</p>`},
 "eng":{
 	"downprobe":"down",
 	"upprobe": "up",
@@ -179,5 +184,10 @@ const experiment_text = {"hun":{
 				Remember, <span style="color: #FF3B3B; font-weight: bold;">red</span> trials will deduct 17 coins from your total.
 				<span style="color: #00E676; font-weight: bold;">Green</span> trials will add 17 coins to your total.<br>
 				When you are ready, press the spacebar to begin.<span style="display:inline-block; width:100%;"></span></p></div>
-				<img src="images/instruction_pic.png" alt="Hand placement instructions" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 55%; max-width: 600px;">`
+				<img src="images/instruction_pic.png" alt="Hand placement instructions" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 55%; max-width: 600px;">`,
+	"debrief":`<div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px;">
+				<p style="font-weight: bold; font-size: 28px; margin-bottom: 25px;"> <h3>Dear Participant!</h3></p>
+				<p>Thank you for participating in our study! In this experiment, we were interested in how rewarding and punishing stimuli affect reaction time in a response interference task.</p>
+				<p>Your participation allows us to examine how punishment and reward influence one of the fundamental adaptive mechanisms of our brain, known as cognitive control.</p> 
+				<p>If you have any comments or questions about the study, please contact us at <a href="mailto:bognar.miklos@ppk.elte.hu">bognar.miklos@ppk.elte.hu</a></p>`
 }}

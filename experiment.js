@@ -6,6 +6,11 @@
 const running_jatos = (typeof jatos !== `undefined`)
 
 //URL parameters
+
+var lang = "hun";
+var debug = 0;
+var experiment_number = 1;
+
 // Get URL parameters for language and debug mode)
 let queryString = window.location.search;
 let urlParams = new URLSearchParams(queryString);
@@ -37,10 +42,6 @@ if(running_jatos == false){
             }
         }
     });
-
-var lang = "hun";
-var debug = 0;
-var experiment_number = 1;
 
 //Stimulus time parameters
 let durations = {
@@ -506,8 +507,15 @@ const experiment_end = {
     }
 };
 
+//debrief
+const debrief_trial = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: experiment_text[lang]["debrief"],
+    choices: [experiment_text[lang]["finish"]],
+}
+
 //Adding full experiment and end trial to timeline
-timeline.push(...full_experiment, experiment_end);
+timeline.push(...full_experiment, experiment_end, debrief_trial);
 
 function startExperiment() {
     jsPsych.run(timeline);
