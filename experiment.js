@@ -22,10 +22,8 @@ let urlParams = new URLSearchParams(queryString);
 function main_experiment(debug, lang, experiment_number, experiment_text){
 const running_jatos = (typeof jatos !== `undefined`)
 var experiment_text = experiment_text
-console.log(experiment_text)
 var debug = debug;
 var lang = lang;
-console.log(lang)
 var experiment_number = experiment_number
 //Creating timeline
 const timeline = [];
@@ -118,8 +116,8 @@ const probe = {
 	    experiment: experiment_number
     },
     on_finish: function (data) {
-        console.log('Response data:', data);
-        console.log('Key pressed:', data.response);
+        //console.log('Response data:', data);
+        //console.log('Key pressed:', data.response);
         data.correct = data.response === data.correct_response;
         if(!in_practice) {
         if (data.color === "red") {
@@ -151,7 +149,7 @@ let subj_code;
         return result;
         }
     subj_code = makeid(6);
-console.log(subj_code);
+console.log("Subject code", subj_code);
 jsPsych.data.addProperties({subj_code: subj_code}); 
 
 //Preparing stimulus variables
@@ -179,7 +177,7 @@ function format_prime_probe_trials(trial, block_index) {
 
 const shuffled_blocks = jsPsych.randomization.shuffle(prime_probe_trials.trial_sets);
 const selected_blocks = shuffled_blocks[0]; // Changed from slice(0, 10) to [0][0]
-console.log(selected_blocks);
+//console.log(selected_blocks);
 const randomized_stimuli_per_participant = selected_blocks.map(
     (block, block_index) => 
         block.map(trial => format_prime_probe_trials(trial, block_index)) 
@@ -518,7 +516,6 @@ try {
 	    var jatos_lang = jatos.urlQueryParameters.lang;
 	    var jatos_debug = jatos.urlQueryParameters.debug;
 	    var jatos_experiment_number = jatos.urlQueryParameters.exp;
-	    console.log("Now it works, jatos lang: ", jatos_lang)
 	    var lang = jatos_lang || "hun";
 	    var debug = jatos_debug === "1" ? 1 : 0;
 	    var experiment_number = jatos_experiment_number === "2" ? 2 : 1;
