@@ -3,45 +3,36 @@
     alert("A Safari ebben a kutatásban nem támogatott böngésző. Kérlek használj Chrome-ot vagy Firefoxot!");
     throw new Error("Safari not supported");
 }
-const running_jatos = (typeof jatos !== `undefined`)
-
-//URL parameters
-
-var lang = "hun";
-var debug = 0;
-var experiment_number = 1;
-
-// Get URL parameters for language and debug mode)
 let queryString = window.location.search;
 let urlParams = new URLSearchParams(queryString);
-if(running_jatos == false){
-	lang = urlParams.get("lang") || "hun";
-	debug = urlParams.get("debug") === "1" ? 1 : 0;
-	experiment_number = urlParams.get("exp") === "2" ? 2 : 1;
-}
 
 
 //Initialize jsPsych
-    const jsPsych = initJsPsych({
-	    on_trial_start: () => {
-		    if(running_jatos){
-			    jatos_lang = jatos.urlQueryParameters.lang || "hun";
-			    jatos_debug = jatos.urlQueryParameters.debug === "1" ? 1: 0;
-			    jatos_experiment_number = jatos.urlQueryParameters.exp === "2" ? 2 : 1;
-			    lang = jatos_lang;
-			    debug = jatos_debug;
-			    experiment_number = jatos_experiment_number
-		    }
-	    },
+    const jsPsych = initJsPsych({ 
         on_finish: () => {
-            if (running_jatos) {
-                jatos.endStudyAndRedirect(
-                    "redirect link here", 
-                    jsPsych.data.get().csv()
+            try {jatos.endStudyAndRedirect(
+                    "redirect link h", 
+            jsPsych.data.get().csv()
                 );
+	    }catch{
+	    jsPsych.data.get().csv()
+	    }
             }
-        }
     });
+function main_experiment(debug, lang, experiment_number, experiment_text){
+const running_jatos = (typeof jatos !== `undefined`)
+var experiment_text = experiment_text
+console.log(experiment_text)
+var debug = debug;
+var lang = lang;
+console.log(lang)
+var experiment_number = experiment_number
+//Creating timeline
+const timeline = [];
+
+//URL parameters
+
+// Get URL parameters for language and debug mode)
 
 //Stimulus time parameters
 let durations = {
@@ -195,8 +186,6 @@ const randomized_stimuli_per_participant = selected_blocks.map(
 )
 
 
-//Creating timeline
-const timeline = [];
 
 //Welcome
 const welcome_trial = {
@@ -516,13 +505,37 @@ const debrief_trial = {
 
 //Adding full experiment and end trial to timeline
 timeline.push(...full_experiment, experiment_end, debrief_trial);
+return timeline
 
-function startExperiment() {
+}
+
+function startExperiment(timeline) {
     jsPsych.run(timeline);
 }
+try {
+	jatos.onLoad(function() {
+	console.log(experiment_text)
+	    var jatos_lang = jatos.urlQueryParameters.lang;
+	    var jatos_debug = jatos.urlQueryParameters.debug;
+	    var jatos_experiment_number = jatos.urlQueryParameters.exp;
+	    console.log("Now it works, jatos lang: ", jatos_lang)
+	    var lang = jatos_lang || "hun";
+	    var debug = jatos_debug === "1" ? 1 : 0;
+	    var experiment_number = jatos_experiment_number === "2" ? 2 : 1;
+	    
+	    console.log("Jatos loaded, starting experiment...")
+	my_timeline = main_experiment(debug,lang, experiment_number, experiment_text) 
+	startExperiment(my_timeline)
+	    console.log("started experiment")
+    });
+}catch (error){ 
+	var lang = urlParams.get("lang") || "hun";
+	var debug = urlParams.get("debug") === "1" ? 1 : 0;
+	var experiment_number = urlParams.get("exp") === "2" ? 2 : 1;
+	    console.log("Jatos was NOT loaded, starting experiment in vanilla mode...")
+	my_timeline = main_experiment(debug,lang, experiment_number, experiment_text) 
+	startExperiment(my_timeline)
+	    console.log("started experiment")
 
-if (running_jatos) {
-    jatos.onLoad(startExperiment);
-} else {
-    startExperiment();
 }
+
