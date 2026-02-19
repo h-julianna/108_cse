@@ -3,44 +3,42 @@
     alert("A Safari ebben a kutatásban nem támogatott böngésző. Kérlek használj Chrome-ot vagy Firefoxot!");
     throw new Error("Safari not supported");
 }
-const running_jatos = (typeof jatos !== `undefined`)
-
-//URL parameters
-// Get URL parameters for language and debug mode)
 let queryString = window.location.search;
 let urlParams = new URLSearchParams(queryString);
-if(running_jatos == false){
-	lang = urlParams.get("lang") || "hun";
-	debug = urlParams.get("debug") === "1" ? 1 : 0;
-	experiment_number = urlParams.get("exp") === "2" ? 2 : 1;
-}
 
 
 //Initialize jsPsych
-    const jsPsych = initJsPsych({
-	    on_trial_start: () => {
-		    if(running_jatos){
-			    jatos_lang = jatos.urlQueryParameters.lang || "hun";
-			    jatos_debug = jatos.urlQueryParameters.debug === "1" ? 1: 0;
-			    jatos_experiment_number = jatos.urlQueryParameters.exp === "2" ? 2 : 1;
-			    lang = jatos_lang;
-			    debug = jatos_debug;
-			    experiment_number = jatos_experiment_number
-		    }
-	    },
+    const jsPsych = initJsPsych({ 
         on_finish: () => {
-            if (running_jatos) {
-                jatos.endStudyAndRedirect(
-                    "redirect link here", 
-                    jsPsych.data.get().csv()
+            try {jatos.endStudyAndRedirect(
+                    "redirect link h", 
+            jsPsych.data.get().csv()
                 );
+	    }catch{
+        const csv = jsPsych.data.get().csv();
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `data_${Date.now()}.csv`;
+        link.click();
+	    }
             }
-        }
     });
+function main_experiment(debug, lang, experiment_number, experiment_text){
+const running_jatos = (typeof jatos !== `undefined`)
+var experiment_text = experiment_text
+var debug = debug;
+var lang = lang;
+var experiment_number = experiment_number;
+let instruction_key = experiment_number === 2 ? "instruction_exp2" : "instruction_exp1";
+let instruction_text = experiment_text[lang][instruction_key];
+//Creating timeline
+const timeline = [];
 
-var lang = "hun";
-var debug = 0;
-var experiment_number = 1;
+//URL parameters
+
+// Get URL parameters for language and debug mode)
 
 //Stimulus time parameters
 let durations = {
@@ -126,8 +124,8 @@ const probe = {
 	    experiment: experiment_number
     },
     on_finish: function (data) {
-        console.log('Response data:', data);
-        console.log('Key pressed:', data.response);
+        //console.log('Response data:', data);
+        //console.log('Key pressed:', data.response);
         data.correct = data.response === data.correct_response;
         if(!in_practice) {
         if (data.color === "red") {
@@ -159,7 +157,7 @@ let subj_code;
         return result;
         }
     subj_code = makeid(6);
-console.log(subj_code);
+console.log("Subject code", subj_code);
 jsPsych.data.addProperties({subj_code: subj_code}); 
 
 //Preparing stimulus variables
@@ -187,15 +185,13 @@ function format_prime_probe_trials(trial, block_index) {
 
 const shuffled_blocks = jsPsych.randomization.shuffle(prime_probe_trials.trial_sets);
 const selected_blocks = shuffled_blocks[0]; // Changed from slice(0, 10) to [0][0]
-console.log(selected_blocks);
+//console.log(selected_blocks);
 const randomized_stimuli_per_participant = selected_blocks.map(
     (block, block_index) => 
         block.map(trial => format_prime_probe_trials(trial, block_index)) 
 )
 
 
-//Creating timeline
-const timeline = [];
 
 //Welcome
 const welcome_trial = {
@@ -286,7 +282,7 @@ timeline.push(demographic_timeline);
 //Instructions
 const instruction_trial = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: experiment_text[lang]["instruction"],
+    stimulus: instruction_text,
             choices: [" "],
 }
 
@@ -494,27 +490,44 @@ const experiment_end = {
             <p>Hogy megkaphasd a pontjaidat, nyomd meg a "Vége" gombot</p>`
   },
   choices: [experiment_text[lang]["finish"]],
-      on_finish: function() { //Local download of data
-        if (!running_jatos || !debug) return;
-        const csv = jsPsych.data.get().csv();
-        const blob = new Blob([csv], { type: 'text/csv' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `data_${Date.now()}.csv`;
-        link.click();
-    }
 };
 
-//Adding full experiment and end trial to timeline
-timeline.push(...full_experiment, experiment_end);
+//debrief
+const debrief_trial = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: experiment_text[lang]["debrief"],
+    choices: [experiment_text[lang]["finish"]],
+}
 
-function startExperiment() {
+//Adding full experiment and end trial to timeline
+timeline.push(...full_experiment, experiment_end, debrief_trial);
+return timeline
+
+}
+
+function startExperiment(timeline) {
     jsPsych.run(timeline);
 }
+try {
+	jatos.onLoad(function() {
+	console.log(experiment_text)
+	    var lang = jatos.urlQueryParameters.lang || "hun";
+	    var debug = jatos.urlQueryParameters.debug === "1" ? 1 : 0;
+	    var experiment_number = jatos.urlQueryParameters.exp === "2" ? 2 : 1;
+	    
+	    console.log("Jatos loaded, starting experiment...")
+	my_timeline = main_experiment(debug,lang, experiment_number, experiment_text) 
+	startExperiment(my_timeline)
+	    console.log("started experiment")
+    });
+}catch (error){ 
+	var lang = urlParams.get("lang") || "hun";
+	var debug = urlParams.get("debug") === "1" ? 1 : 0;
+	var experiment_number = urlParams.get("exp") === "2" ? 2 : 1;
+	    console.log("Jatos was NOT loaded, starting experiment in vanilla mode...")
+	my_timeline = main_experiment(debug,lang, experiment_number, experiment_text) 
+	startExperiment(my_timeline)
+	    console.log("started experiment")
 
-if (running_jatos) {
-    jatos.onLoad(startExperiment);
-} else {
-    startExperiment();
 }
+
