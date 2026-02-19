@@ -28,6 +28,10 @@ The experiment is available in English and Hungarian (default). Language can be 
 
 If debug is enabled in URL parameters, debug=1 is used.
 
+### Experiment 1, Experiment 2
+
+The code features two experiments, experiment 1, in which only probe stimuli are assigned to be different colours, and experiment 2, in which only prime stimuli are assigned to be different colours. By default, experiment 1 is enabled. To enable experiment 2 in URL parameters, exp=2 should be used.
+
 ## About the task
 
 In this experiment, the confound-minimized prime-probe task (Weissman et al., 2014) is employed, using three experimental conditions:
