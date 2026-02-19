@@ -24,7 +24,9 @@ const running_jatos = (typeof jatos !== `undefined`)
 var experiment_text = experiment_text
 var debug = debug;
 var lang = lang;
-var experiment_number = experiment_number
+var experiment_number = experiment_number;
+let instruction_key = experiment_number === 2 ? "instruction_exp2" : "instruction_exp1";
+let instruction_text = experiment_text[lang][instruction_key];
 //Creating timeline
 const timeline = [];
 
@@ -274,7 +276,7 @@ timeline.push(demographic_timeline);
 //Instructions
 const instruction_trial = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: experiment_text[lang]["instruction"],
+    stimulus: instruction_text,
             choices: [" "],
 }
 
