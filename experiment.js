@@ -15,7 +15,13 @@ let urlParams = new URLSearchParams(queryString);
             jsPsych.data.get().csv()
                 );
 	    }catch{
-	    jsPsych.data.get().csv()
+        const csv = jsPsych.data.get().csv();
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `data_${Date.now()}.csv`;
+        link.click();
 	    }
             }
     });
@@ -484,16 +490,6 @@ const experiment_end = {
             <p>Hogy megkaphasd a pontjaidat, nyomd meg a "Vége" gombot</p>`
   },
   choices: [experiment_text[lang]["finish"]],
-      on_finish: function() { //Local download of data
-        if (!running_jatos || !debug) return;
-        const csv = jsPsych.data.get().csv();
-        const blob = new Blob([csv], { type: 'text/csv' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `data_${Date.now()}.csv`;
-        link.click();
-    }
 };
 
 //debrief
