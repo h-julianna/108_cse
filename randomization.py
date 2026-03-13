@@ -1,3 +1,4 @@
+
 import random
 import json
 import signal
@@ -217,6 +218,16 @@ def add_colors(congruency_list):
         for i, (block_idx, trial_idx) in enumerate(non_monetary_positions):
             congruency_list[block_idx][trial_idx]["color"] = non_monetary_colors[i]
 
+        # Fix consecutive non-monetary color repeats in-place
+        for block in congruency_list:
+            last_non_monetary_color = None
+            for trial in block:
+                if trial["condition"] == "not_monetary":
+                    if trial["color"] == last_non_monetary_color:
+                        alternatives = [c for c in non_monetary_colors_pool if c != last_non_monetary_color]
+                        trial["color"] = random.choice(alternatives)
+                    last_non_monetary_color = trial["color"]
+
         # Validate monetary colors: strict 200/200
         red_count = sum(
             1 for block in congruency_list for trial in block
@@ -247,6 +258,21 @@ def add_colors(congruency_list):
         if not non_monetary_valid:
             continue
 
+        # Validate: no consecutive non-monetary trials share the same color
+        consecutive_color_violations = 0
+        for block in congruency_list:
+            last_non_monetary_color = None
+            for trial in block:
+                if trial["condition"] == "not_monetary":
+                    if trial["color"] == last_non_monetary_color:
+                        consecutive_color_violations += 1
+                        break
+                    last_non_monetary_color = trial["color"]
+
+        if consecutive_color_violations > 0:
+            continue
+
+        print(f"    Valid color distribution found (attempt {attempt + 1})")
         print(f"    Valid color distribution found (attempt {attempt + 1})")
         print(f"    Monetary: red={red_count}, green={green_count}")
         print(f"    Non-monetary: magenta={non_monetary_color_counts['magenta']}, blue={non_monetary_color_counts['blue']}, yellow={non_monetary_color_counts['yellow']}")
