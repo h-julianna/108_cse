@@ -271,8 +271,6 @@ def add_colors(congruency_list):
 
         if consecutive_color_violations > 0:
             continue
-
-        print(f"    Valid color distribution found (attempt {attempt + 1})")
         print(f"    Valid color distribution found (attempt {attempt + 1})")
         print(f"    Monetary: red={red_count}, green={green_count}")
         print(f"    Non-monetary: magenta={non_monetary_color_counts['magenta']}, blue={non_monetary_color_counts['blue']}, yellow={non_monetary_color_counts['yellow']}")
