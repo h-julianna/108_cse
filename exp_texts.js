@@ -52,16 +52,17 @@ const experiment_text = {"hun":{
             	<p><strong>Kérlek, amennyiben egyetértesz a fenti feltételekkel, és hozzájárulsz a kutatásban való részvételhez, kattints az "Igen" gombra.</strong></p>`,
 	"age":`Hány éves vagy?`,
 	"neptun":`Mi a NEPTUN kódod?`,
-	"gender":`Melyik a nemmel azonosulsz?`,
+	"gender":`Melyik nemmel azonosulsz?`,
 	"gender_options":["Férfi", "Nő", "Nem-bináris", "Nem szeretném megosztani"],
 	"instruction_exp1":`<h2>Instrukciók</h2>
-                <p>Ebben a kísérletben arra vagyunk kíváncsiak, hogy miként befolyásolja a büntetésés és a jutalmazás a konfliktusfeldolgozást. 
+                <p>Ebben a kísérletben arra vagyunk kíváncsiak, hogy miként befolyásolja a büntetés és a jutalmazás a konfliktusfeldolgozást. 
                 A kísérlet során iránymegjelöléseket fogsz olvasni (FEL, LE, JOBB, BAL). Először egy prime inger fog megjelenni a képernyőn, amin egy irány (pl.: „FEL”) lesz olvasható egymás alatt háromszor. 
                 Ezt követően megjelenik a célinger, ami vagy azonos („FEL”) vagy ellentétes („LE”) lesz az előtte bemutatott iránnyal.
                 A feladatod az lesz, hogy minél gyorsabban és pontosabban eltaláld a célinger irányát a hozzárendelt billentyű megnyomásával.</p> 
                 <p>A kísérletet 2000 garassal kezded. Amikor a célinger <span style="color: #FF3B3B; font-weight: bold;">piros</span> színű, akkor 17 garast vonunk le tőled.
                 Ha viszont <span style="color: #00E676; font-weight: bold;">zöld</span> színű célingert látsz, 17 garas a jutalmad. 
                 A neutrális próbákat három szín fogja jelölni: <span style="color: #2979FF; font-weight: bold;">kék</span>, <span style="color: #FFD700; font-weight: bold;">sárga</span> és <span style="color: #E040FB; font-weight: bold;">rózsaszín</span>. Ezeknél a próbáknál sem jutalom, sem büntetés nem jár.</p> 
+								<p>Minden blokk végén látni fogod, mennyi garassal rendelkezel. Az utolsó blokk végén a kísérletért járó pontszám az eredményedtől függ: 2000 garas alatt  2,5 pont, 2000 garas felett 3,5 pont, pontosan 2000 garasnál pedig a kiinduló 3 pont marad. </p>
                 <p>Kérlek helyezd a billentyűzetre a kezedet a képen látható módon:</p>
                 <p>A bal gyűrűsujjadat tedd az <span class='key'>A</span>-ra. Ez lesz a "BAL" irány. 
                 A jobb gyűrűsujjadat az <span class='key'>L</span>-re, ez fogja jelölni a "JOBB" irányt. 
@@ -70,13 +71,14 @@ const experiment_text = {"hun":{
                 <img src="images/instruction_pic.png" alt="Hand placement instructions" style="width: 40%; height: 40%;">
                 <p style="text-align: center;"><em>Amennyiben készen állsz a kísérlet megkezdésére, nyomd meg a space billentyűt!</em></p>`,
 	"instruction_exp2":`<h2>Instrukciók</h2>
-                <p>Ebben a kísérletben arra vagyunk kíváncsiak, hogy miként befolyásolja a büntetésés és a jutalmazás a konfliktusfeldolgozást. 
+                <p>Ebben a kísérletben arra vagyunk kíváncsiak, hogy miként befolyásolja a büntetés és a jutalmazás a konfliktusfeldolgozást. 
                 A kísérlet során iránymegjelöléseket fogsz olvasni (FEL, LE, JOBB, BAL). Először egy prime inger fog megjelenni a képernyőn, amin egy irány (pl.: „FEL”) lesz olvasható egymás alatt háromszor. 
                 Ezt követően megjelenik a célinger, ami vagy azonos („FEL”) vagy ellentétes („LE”) lesz az előtte bemutatott iránnyal.
                 A feladatod az lesz, hogy minél gyorsabban és pontosabban eltaláld a célinger irányát a hozzárendelt billentyű megnyomásával.</p> 
                 <p>A kísérletet 2000 garassal kezded. Amikor a prime-inger <span style="color: #FF3B3B; font-weight: bold;">piros</span> színű, akkor 17 garast vonunk le tőled.
                 Ha viszont <span style="color: #00E676; font-weight: bold;">zöld</span> színű prime-ingert látsz, 17 garas a jutalmad. 
                 A neutrális próbákat három szín fogja jelölni: <span style="color: #2979FF; font-weight: bold;">kék</span>, <span style="color: #FFD700; font-weight: bold;">sárga</span> és <span style="color: #E040FB; font-weight: bold;">rózsaszín</span>. Ezeknél a prime próbáknál sem jutalom, sem büntetés nem jár.</p> 
+								<p> Minden blokk végén látni fogod, mennyi garassal rendelkezel. Az utolsó blokk végén a kísérletért járó pontszám az eredményedtől függ: 2000 garas alatt  2,5 pont, 2000 garas felett 3,5 pont, pontosan 2000 garasnál pedig a kiinduló 3 pont marad. </p>
                 <p>Kérlek helyezd a billentyűzetre a kezedet a képen látható módon:</p>
                 <p>A bal gyűrűsujjadat tedd az <span class='key'>A</span>-ra. Ez lesz a "BAL" irány. 
                 A jobb gyűrűsujjadat az <span class='key'>L</span>-re, ez fogja jelölni a "JOBB" irányt. 
@@ -85,16 +87,16 @@ const experiment_text = {"hun":{
                 <img src="images/instruction_pic.png" alt="Hand placement instructions" style="width: 40%; height: 40%;">
                 <p style="text-align: center;"><em>Amennyiben készen állsz a kísérlet megkezdésére, nyomd meg a space billentyűt!</em></p>`,
 	"practice_instruction":`<h2>Gyakorló blokk</h2>
-            	<p>A kísérlet megkezdése előtt egy rövid gyakorló blokk következik. Törekedj a minél gyorsabb és pontosabb válaszadásra! 
-            	A próbák 80%-át jól kell teljesítened, különben a gyakorlás újra indul. Ha készen állsz, nyomj meg egy tetszőleges billentyűt a kezdéshez.</p>`,
+            	<p>A kísérlet megkezdése előtt egy rövid gyakorló blokk következik. 
+            	A próbák 80%-át jól kell teljesítened, különben a gyakorlás újra indul. Törekedj a minél gyorsabb és pontosabb válaszadásra! <br> Ha készen állsz, nyomj meg egy tetszőleges billentyűt a kezdéshez.</p>`,
 	"practice_intermission":`<div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px">
 				<p>Még egy rövid gyakorló blokk következik.<br>
-				Ha készen állsz, nyomj meg egy tetszőleges billentyűt a kezdéshez.</p>
+				 Törekedj a minél gyorsabb és pontosabb válaszadásra! <br> Ha készen állsz, nyomj meg egy tetszőleges billentyűt a kezdéshez.</p>
 				<p><strong>A blokk automatikusan elindul 2 perc múlva.</strong></p>
 				<p id="timer" style="font-size: 28px; color: darkred;">Kezdés: 2:00</p></div>`,
 	"practice_feedback_slow":`<div style='font-size:35px;'>Túl lassú!</div>`,
 	"practice_feedback_incorrect":`<div style='font-size:35px;'>Hibás válasz!</div>`,
-	"practice_end":`<p> A gyakorló rész véget ért. A kísérleti blokkok következnek. A kísérleti blokkokban nem fogsz visszajelzést kapni, ha túl lassú, vagy hibás választ adtál.
+	"practice_end":`<p> A gyakorló rész véget ért. A kísérleti blokkok következnek. A kísérleti blokkokban nem fogsz visszajelzést kapni, ha túl lassú, vagy hibás választ adtál. Törekedj a minél gyorsabb és pontosabb válaszadásra!
         		Ne feledd, <span style="color: #FF3B3B; font-weight: bold;">piros</span> próbák esetén 17 garast vonunk le tőled. <span style="color: #00E676; font-weight: bold;">Zöld</span> próbák esetén 17 garast kapsz.
 				Ha készen állsz, nyomd meg a space billentyűt a kezdéshez.</p>
 				<img src="images/instruction_pic.png" alt="Hand placement instructions" style="width: 40%; height: auto;">
@@ -173,6 +175,7 @@ const experiment_text = {"hun":{
 				If the probe is <span style="color: #00E676; font-weight: bold;">green</span>, you will receive a reward of 17 coins. 
 				Neutral probe trials are indicated by three colors: <span style="color: #2979FF; font-weight: bold;">blue</span>, <span style="color: #FFD700; font-weight: bold;">yellow</span>, and <span style="color: #E040FB; font-weight: bold;">pink</span>. 
 				No reward or punishment applies to these neutral probe trials.</p>
+				<p>At the end of each block, you will see how many coins you have. At the end of the final block, your score depends on the number of coins: if it is below 2000, you receive 2.5 points, if it is above 2000, you receive 3.5 points. If you finish with exactly 2000 coins, the base score of 3 points remains.</p>
 				<p>Please place your fingers on the keyboard as shown in the picture:</p>
 				<p>Place your left ring finger on <span class='key'>A</span> — this will indicate "LEFT". 
 				Place your right ring finger on <span class='key'>L</span> — this will indicate "RIGHT". 
@@ -191,6 +194,7 @@ const experiment_text = {"hun":{
 				If the prime is <span style="color: #00E676; font-weight: bold;">green</span>, you will receive a reward of 17 coins. 
 				Neutral prime trials are indicated by three colors: <span style="color: #2979FF; font-weight: bold;">blue</span>, <span style="color: #FFD700; font-weight: bold;">yellow</span>, and <span style="color: #E040FB; font-weight: bold;">pink</span>. 
 				No reward or punishment applies to these neutral prime trials.</p>
+				<p>At the end of each block, you will see how many coins you have. At the end of the final block, your score depends on the number of coins: if it is below 2000, you receive 2.5 points, if it is above 2000, you receive 3.5 points. If you finish with exactly 2000 coins, the base score of 3 points remains. </p>
 				<p>Please place your fingers on the keyboard as shown in the picture:</p>
 				<p>Place your left ring finger on <span class='key'>A</span> — this will indicate "LEFT". 
 				Place your right ring finger on <span class='key'>L</span> — this will indicate "RIGHT". 
@@ -199,17 +203,17 @@ const experiment_text = {"hun":{
 				<img src="images/instruction_pic.png" alt="Hand placement instructions" style="width: 40%; height: 40%;">
 				<p style="text-align: center;"><em>When you are ready to begin the experiment, press the spacebar!</em></p>`,
 	"practice_instruction":`<h2>Practice Block</h2>
-				<p>Before the main experiment begins, you will complete a short practice block. Try to respond as quickly and accurately as possible! 
-				You must correctly complete at least 80% of the trials, otherwise the practice block will start over. When you are ready, press any key to begin.</p>`,
+				<p>Before the main experiment begins, you will complete a short practice block. 
+				You must correctly complete at least 80% of the trials, otherwise the practice block will start over. Try to respond as quickly and accurately as possible! <br> When you are ready, press any key to begin.</p>`,
 	"practice_intermission":`<div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px">
-				<p>Another short practice block will follow.<br>
+				<p>Another short practice block will follow. <br> Try to respond as quickly and accurately as possible!<br>
 				When you are ready, press any key to begin.</p>
 				<p><strong>The block will automatically start in 2 minutes.</strong></p>
 				<p id="timer" style="font-size: 28px; color: darkred;">Start: 2:00</p></div>`,
 	"practice_feedback_slow": `<div style='font-size:35px;'>Too slow!</div>`,
 	"practice_feedback_incorrect": `<div style='font-size:35px;'>Incorrect response!</div>`,
 	"practice_end":`<p>The practice block has ended. The main experimental blocks will follow.
-				During the experimental blocks, you will not receive feedback if your response is too slow or incorrect. 
+				During the experimental blocks, you will not receive feedback if your response is too slow or incorrect. Try to respond as quickly and accurately as possible!
 				Remember, <span style="color: #FF3B3B; font-weight: bold;">red</span> trials will deduct 17 coins from your total. 
 				<span style="color: #00E676; font-weight: bold;">Green</span> trials will add 17 coins to your total.
 				When you are ready, press the spacebar to begin.</p>
