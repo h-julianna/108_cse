@@ -11,7 +11,7 @@ let urlParams = new URLSearchParams(queryString);
     const jsPsych = initJsPsych({ 
         on_finish: () => {
             try {jatos.endStudyAndRedirect(
-                    "redirect link h", 
+                    "link here", 
             jsPsych.data.get().csv()
                 );
 	    }catch{
@@ -110,7 +110,7 @@ const probe = {
 		return `<span style="font-size:40px;">${myprobe}</span>`
 	    }
     },
-    choices: ['a', 'A', 'e', 'E', 'n', 'N', 'l', 'L'],
+    choices: ['a', 'e', 'n', 'l'],
     stimulus_duration: durations.probe_stim_duration,
     trial_duration: durations.probe_trial_duration,
     response_ends_trial: false,
@@ -126,7 +126,7 @@ const probe = {
     on_finish: function (data) {
         //console.log('Response data:', data);
         //console.log('Key pressed:', data.response);
-        data.correct = data.response === data.correct_response;
+       data.correct = data.response?.toLowerCase() === data.correct_response?.toLowerCase(); //upper case responses are deemed correct as well
         if(!in_practice) {
         if (data.color === "red") {
         money -= 17;
@@ -309,7 +309,7 @@ const practice_intermission = {
       time_left--;
       const minutes = Math.floor(time_left / 60);
       const seconds = time_left % 60;
-      timer_display.textContent = `Start: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+      timer_display.textContent = `Kezdés: ${minutes}:${seconds.toString().padStart(2, '0')}`;
       if (time_left <= 0) clearInterval(countdown);
     }, 1000);
   }
@@ -434,7 +434,7 @@ const block_intermission = {
       <div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px">
         <p><strong>End of block.</strong></p>
         <p>You currently have <strong style="color: ${money_color};">${money} coins</strong>. When you are ready, press any key to continue.</p>
-        <p>Take a short break, then press any key to start the next block.</p>
+        <p>Take a short break, then press any key to start the next block. Try to respond as quickly and accurately as possible!</p>
         <p><strong>The next block will automatically start in 2 minutes.</strong></p>
         <p id="timer" style="font-size: 28px; color: darkred;">Starting in: 2:00</p>
       </div>`;
@@ -442,8 +442,8 @@ const block_intermission = {
     return `
       <div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px">
         <p><strong>Blokk vége.</strong></p>
-        <p>Összesen <strong style="color: ${money_color};">${money} garasod</strong> van. Ha készen állsz, nyomj le egy gombot a folytatáshoz.</p>
-        <p>Pihenj egy kicsit, majd nyomj meg egy billentyűt a következő blokk kezdéséhez.</p>
+        <p>Összesen <strong style="color: ${money_color};">${money} garasod</strong> van.</p>
+        <p>Pihenj egy kicsit, majd nyomj meg egy billentyűt a következő blokk kezdéséhez. Törekedj a minél gyorsabb és pontosabb válaszadásra!</p>
         <p><strong>A következő blokk automatikusan elindul 2 perc múlva.</strong></p>
         <p id="timer" style="font-size: 28px; color: darkred;">Kezdés: 2:00</p>
       </div>`;
@@ -462,7 +462,10 @@ const block_intermission = {
       if (timeLeft <= 0) clearInterval(countdown);
     }, 1000);
   },
-  data: {task: 'intermission'}
+  data: {
+    task: 'intermission',
+    money: function() { return money; }
+  }
 };
 
 //Full experiment timeline
