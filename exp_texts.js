@@ -62,7 +62,7 @@ const experiment_text = {"hun":{
                 <p>A kísérletet 2000 garassal kezded. Amikor a célinger <span style="color: #FF3B3B; font-weight: bold;">piros</span> színű, akkor 17 garast vonunk le tőled.
                 Ha viszont <span style="color: #00E676; font-weight: bold;">zöld</span> színű célingert látsz, 17 garas a jutalmad. 
                 A neutrális próbákat három szín fogja jelölni: <span style="color: #2979FF; font-weight: bold;">kék</span>, <span style="color: #FFD700; font-weight: bold;">sárga</span> és <span style="color: #E040FB; font-weight: bold;">rózsaszín</span>. Ezeknél a próbáknál sem jutalom, sem büntetés nem jár.</p> 
-								<p>Minden blokk végén látni fogod, mennyi garassal rendelkezel. Az utolsó blokk végén a kísérletért járó pontszám az eredményedtől függ: 1800 garas alatt  2,5 pont, 2200 garas felett 3,5 pont, a kettő között pedig a kiinduló 3 pont marad. </p>
+								<p>Minden blokk végén látni fogod, mennyi garassal rendelkezel. Az utolsó blokk végén a kísérletért járó pontszám az eredményedtől függ: 1800 garas alatt 2,5 pont, 2200 garas felett 3,5 pont, a kettő között pedig a kiinduló 3 pont marad. </p>
                 <p>Kérlek helyezd a billentyűzetre a kezedet a képen látható módon:</p>
                 <p>A bal gyűrűsujjadat tedd az <span class='key'>A</span>-ra. Ez lesz a "BAL" irány. 
                 A jobb gyűrűsujjadat az <span class='key'>L</span>-re, ez fogja jelölni a "JOBB" irányt. 
@@ -78,7 +78,7 @@ const experiment_text = {"hun":{
                 <p>A kísérletet 2000 garassal kezded. Amikor a prime-inger <span style="color: #FF3B3B; font-weight: bold;">piros</span> színű, akkor 17 garast vonunk le tőled.
                 Ha viszont <span style="color: #00E676; font-weight: bold;">zöld</span> színű prime-ingert látsz, 17 garas a jutalmad. 
                 A neutrális próbákat három szín fogja jelölni: <span style="color: #2979FF; font-weight: bold;">kék</span>, <span style="color: #FFD700; font-weight: bold;">sárga</span> és <span style="color: #E040FB; font-weight: bold;">rózsaszín</span>. Ezeknél a prime próbáknál sem jutalom, sem büntetés nem jár.</p> 
-								<p> Minden blokk végén látni fogod, mennyi garassal rendelkezel. Az utolsó blokk végén a kísérletért járó pontszám az eredményedtől függ: 2000 garas alatt  2,5 pont, 2000 garas felett 3,5 pont, pontosan 2000 garasnál pedig a kiinduló 3 pont marad. </p>
+								<p> Minden blokk végén látni fogod, mennyi garassal rendelkezel. Az utolsó blokk végén a kísérletért járó pontszám az eredményedtől függ: 1800 garas alatt 2,5 pont, 2200 garas felett 3,5 pont, a kettő között pedig a kiinduló 3 pont marad. </p>
                 <p>Kérlek helyezd a billentyűzetre a kezedet a képen látható módon:</p>
                 <p>A bal gyűrűsujjadat tedd az <span class='key'>A</span>-ra. Ez lesz a "BAL" irány. 
                 A jobb gyűrűsujjadat az <span class='key'>L</span>-re, ez fogja jelölni a "JOBB" irányt. 
