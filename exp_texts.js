@@ -12,7 +12,7 @@ const experiment_text = {"hun":{
                 <p>Egy tudományos kutatásban veszel részt, amelynek vezetője Bognár Miklós, az ELTE Affektív Pszichológia Tanszékének kutatója. 
                 A kutatás célja megvizsgálni, hogy különböző ingertípusok miként hatnak a reakcióidőre.</p>
               <h3>Részvétel</h3>
-                <p>A kutatásban való részvétel teljesen önkéntes. A vizsgálatot bármikor indoklás nélkül megszakíthatod. 
+                <p>A kutatásban való részvétel teljesen önkéntes. A vizsgálatot bármikor indoklás nélkül megszakíthatod. FIGYELEM: A KÍSÉRLET VILLÓDZÓ FÉNYEKET TARTALMAZ. 
                 Ha bármilyen kérdésed, észrevételed vagy problémád van a kutatással kapcsolatban, írj Bognár Miklósnak a <a href="mailto:bognar.miklos@ppk.elte.hu">bognar.miklos@ppk.elte.hu</a> címre.</p>`,
 	"button_press":`Tovább`,
 	"yes/no": ["Igen", "Nem"],
@@ -23,7 +23,6 @@ const experiment_text = {"hun":{
                  <ul>
                     <li>önként veszek részt.</li>
                     <li>a vizsgálat jellegéről, annak megkezdése előtt kielégítő tájékoztatást kaptam.</li>
-                    <li>nem szenvedek semmilyen pszichiátriai betegségben.</li>
                     <li>a vizsgálat idején alkohol vagy drogok hatása alatt nem állok.</li>
                  </ul>
                 <p>Tudomásul veszem, hogy az azonosításomra alkalmas személyi adataimat bizalmasan kezelik.
