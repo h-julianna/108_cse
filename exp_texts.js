@@ -74,12 +74,14 @@ const experiment_text = {"hun":{
                 A kísérlet során iránymegjelöléseket fogsz olvasni (FEL, LE, JOBB, BAL). Először egy prime inger fog megjelenni a képernyőn, amin egy irány (pl.: „FEL”) lesz olvasható egymás alatt háromszor. <strong> Erre az ingerre ne válaszolj!</strong>
                 Ezt követően megjelenik a célinger, ami vagy azonos („FEL”) vagy ellentétes („LE”) lesz az előtte bemutatott iránnyal. <strong>Erre a célingerre kell válaszolni</strong>
                 A feladatod az lesz, hogy minél <strong>gyorsabban és pontosabban</strong> eltaláld a célinger irányát a hozzárendelt billentyű megnyomásával.</p> 
-                <p>A kísérletet 2000 garassal kezded. A kísérlet közben egy véletlengeneráló algoritmus működik, ami mindentől függetlenül levon, vagy hozzáad az összes garasodhoz valamennyi összeget. Ennek a működését semmilyen módon nem tudod befolyásolni, a levonások és a hozzáadások függetlenek a teljesítménytől.  Amikor a prime-inger <span style="color: #FF3B3B; font-weight: bold;">piros</span> színű, akkor 17 garast vonunk le tőled.
+                <p>A kísérletet 2000 garassal kezded. A kísérlet közben egy véletlengeneráló algoritmus működik, ami mindentől függetlenül levon, vagy hozzáad az összes garasodhoz valamennyi összeget. Ennek a működését semmilyen módon nem tudod befolyásolni, a levonások és a hozzáadások függetlenek a teljesítménytől.  Amikor a prime-inger <span style="color: #FF3B3B; font-weight: bold;">piros</span> színű, akkor 17 garast von le tőled a gép.
                 Ha viszont <span style="color: #00E676; font-weight: bold;">zöld</span> színű prime-ingert látsz, 17 garassal növekszik az összes garasod. 
                 A neutrális próbákon (<span style="color: #2979FF; font-weight: bold;">kék</span>, <span style="color: #FFD700; font-weight: bold;">sárga</span> és <span style="color: #E040FB; font-weight: bold;">rózsaszín</span>) sem jutalom, sem levonás nem jár.</p> 
 <h3>Minden ingerre, minden esetben, a színétől függetlenül válaszolj!</h3>
-<img src="images/probe_press_pic.png" alt="Hand placement instructions" style="width: 40%; height: 40%;">
+<img src="images/probe_press_hun.jpg" alt="Hand placement instructions" style="width: 40%; height: 40%;">
                                                                 <p> Minden blokk végén látni fogod, mennyi garassal rendelkezel. Az utolsó blokk végén a kísérletért járó pontszám az eredményedtől függ: 1800 garas alatt 2,5 pont, 2200 garas felett 3,5 pont, a kettő között pedig a kiinduló 3 pont marad. </p>
+								<h3>Figyelem: A pontszerzés feltétele, hogy az ingerek minimum 70%-át helyesen megválaszold.</h3>
+								<h3>70%-os teljesítmény alatt (túl lassú, vagy pontatlan válaszoknál) 0 pontot kapsz a kísérletre. </h3>
                 <p>Kérlek helyezd a billentyűzetre a kezedet a képen látható módon:</p>
                 <p>A bal gyűrűsujjadat tedd az <span class='key'>A</span>-ra. Ez lesz a "BAL" irány. 
                 A jobb gyűrűsujjadat az <span class='key'>L</span>-re, ez fogja jelölni a "JOBB" irányt. 
