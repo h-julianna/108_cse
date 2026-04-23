@@ -71,13 +71,15 @@ const experiment_text = {"hun":{
                 <p style="text-align: center;"><em>Amennyiben készen állsz a kísérlet megkezdésére, nyomd meg a space billentyűt!</em></p>`,
 	"instruction_exp2":`<h2>Instrukciók</h2>
                 <p>Ebben a kísérletben arra vagyunk kíváncsiak, hogy miként befolyásolja a büntetés és a jutalmazás a konfliktusfeldolgozást. 
-                A kísérlet során iránymegjelöléseket fogsz olvasni (FEL, LE, JOBB, BAL). Először egy prime inger fog megjelenni a képernyőn, amin egy irány (pl.: „FEL”) lesz olvasható egymás alatt háromszor. 
-                Ezt követően megjelenik a célinger, ami vagy azonos („FEL”) vagy ellentétes („LE”) lesz az előtte bemutatott iránnyal.
-                A feladatod az lesz, hogy minél gyorsabban és pontosabban eltaláld a célinger irányát a hozzárendelt billentyű megnyomásával.</p> 
-                <p>A kísérletet 2000 garassal kezded. Amikor a prime-inger <span style="color: #FF3B3B; font-weight: bold;">piros</span> színű, akkor 17 garast vonunk le tőled.
-                Ha viszont <span style="color: #00E676; font-weight: bold;">zöld</span> színű prime-ingert látsz, 17 garas a jutalmad. 
-                A neutrális próbákat három szín fogja jelölni: <span style="color: #2979FF; font-weight: bold;">kék</span>, <span style="color: #FFD700; font-weight: bold;">sárga</span> és <span style="color: #E040FB; font-weight: bold;">rózsaszín</span>. Ezeknél a prime próbáknál sem jutalom, sem büntetés nem jár.</p> 
-								<p> Minden blokk végén látni fogod, mennyi garassal rendelkezel. Az utolsó blokk végén a kísérletért járó pontszám az eredményedtől függ: 1800 garas alatt 2,5 pont, 2200 garas felett 3,5 pont, a kettő között pedig a kiinduló 3 pont marad. </p>
+                A kísérlet során iránymegjelöléseket fogsz olvasni (FEL, LE, JOBB, BAL). Először egy prime inger fog megjelenni a képernyőn, amin egy irány (pl.: „FEL”) lesz olvasható egymás alatt háromszor. <strong> Erre az ingerre ne válaszolj!</strong>
+                Ezt követően megjelenik a célinger, ami vagy azonos („FEL”) vagy ellentétes („LE”) lesz az előtte bemutatott iránnyal. <strong>Erre a célingerre kell válaszolni</strong>
+                A feladatod az lesz, hogy minél <strong>gyorsabban és pontosabban</strong> eltaláld a célinger irányát a hozzárendelt billentyű megnyomásával.</p> 
+                <p>A kísérletet 2000 garassal kezded. A kísérlet közben egy véletlengeneráló algoritmus működik, ami mindentől függetlenül levon, vagy hozzáad az összes garasodhoz valamennyi összeget. Ennek a működését semmilyen módon nem tudod befolyásolni, a levonások és a hozzáadások függetlenek a teljesítménytől.  Amikor a prime-inger <span style="color: #FF3B3B; font-weight: bold;">piros</span> színű, akkor 17 garast vonunk le tőled.
+                Ha viszont <span style="color: #00E676; font-weight: bold;">zöld</span> színű prime-ingert látsz, 17 garassal növekszik az összes garasod. 
+                A neutrális próbákon (<span style="color: #2979FF; font-weight: bold;">kék</span>, <span style="color: #FFD700; font-weight: bold;">sárga</span> és <span style="color: #E040FB; font-weight: bold;">rózsaszín</span>) sem jutalom, sem levonás nem jár.</p> 
+<h3>Minden ingerre, minden esetben, a színétől függetlenül válaszolj!</h3>
+<img src="images/probe_press_pic.png" alt="Hand placement instructions" style="width: 40%; height: 40%;">
+                                                                <p> Minden blokk végén látni fogod, mennyi garassal rendelkezel. Az utolsó blokk végén a kísérletért járó pontszám az eredményedtől függ: 1800 garas alatt 2,5 pont, 2200 garas felett 3,5 pont, a kettő között pedig a kiinduló 3 pont marad. </p>
                 <p>Kérlek helyezd a billentyűzetre a kezedet a képen látható módon:</p>
                 <p>A bal gyűrűsujjadat tedd az <span class='key'>A</span>-ra. Ez lesz a "BAL" irány. 
                 A jobb gyűrűsujjadat az <span class='key'>L</span>-re, ez fogja jelölni a "JOBB" irányt. 
@@ -85,7 +87,7 @@ const experiment_text = {"hun":{
                 Míg a bal középső ujjadat pedig tedd az <span class='key'>E</span>-re, ami a "FEL" irányt fogja jelölni! </p>
                 <img src="images/instruction_pic.png" alt="Hand placement instructions" style="width: 40%; height: 40%;">
                 <p style="text-align: center;"><em>Amennyiben készen állsz a kísérlet megkezdésére, nyomd meg a space billentyűt!</em></p>`,
-	"practice_instruction":`<h2>Gyakorló blokk</h2>
+"practice_instruction":`<h2>Gyakorló blokk</h2>
             	<p>A kísérlet megkezdése előtt egy rövid gyakorló blokk következik. 
             	A próbák 80%-át jól kell teljesítened, különben a gyakorlás újra indul. Törekedj a minél gyorsabb és pontosabb válaszadásra! <br> Ha készen állsz, nyomj meg egy tetszőleges billentyűt a kezdéshez.</p>`,
 	"practice_intermission":`<div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px">

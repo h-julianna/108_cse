@@ -516,7 +516,7 @@ try {
 	console.log(experiment_text)
 	    var lang = jatos.urlQueryParameters.lang || "hun";
 	    var debug = jatos.urlQueryParameters.debug === "1" ? 1 : 0;
-	    var experiment_number = jatos.urlQueryParameters.exp === "2" ? 2 : 1;
+	    var experiment_number = jatos.urlQueryParameters.exp === "1" ? 1 : 2;
 	    
 	    console.log("Jatos loaded, starting experiment...")
 	my_timeline = main_experiment(debug,lang, experiment_number, experiment_text) 
