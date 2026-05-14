@@ -36,7 +36,7 @@ In this experiment, the confound-minimized prime-probe task (Weissman et al., 20
 2.  reward (stimuli are green, indicating monetary gain)
 3.  neutral/non-monetary (stimuli are magenta, blue or yellow).
 
-Conditions are not separated by different experimental blocks, allowing the effect of the emotion elicited to be examined on specific trials, rather than blocks. Evaluative feedback is not given between blocks, however, participants are informed of the monetary units they've collected after each block.
+Conditions are not separated by different experimental blocks, allowing the effect of the emotion elicited to be examined on specific trials, rather than blocks. Evaluative feedback is not given between blocks, however, participants are informed of the monetary units they've collected after each block. Between blocks, participants will complete manipulation checks. They will be presented with three exemplary prime-probe trials, all of the same type (loss, reward, or neutral), which they are required to solve. Following these trials, participants will rate how they felt and how aroused they were on two separate Visual Analogue Scales (VAS).
 
 Before the actual task consisting of 10 blocks, 2 blocks of practice trials must be completed. Evalutative feedback is given here for incorrect/too slow responses. If the proportion of correct responses is under 80%, the practice session restarts.
 
