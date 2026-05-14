@@ -423,6 +423,194 @@ const experimental_blocks = randomized_stimuli_per_participant.map(
         }
     })
 );
+//// MANIPULATION CHECKS
+
+var manipulation_check_instructions = {
+        type: jsPsychHtmlButtonResponse,
+        stimulus: function ( ) {
+          if (lang === "hun") {
+        return `<p>Most arra vagyunk kíváncsiak, hogy milyen mértékben hatottak rád (?) az alábbi ingerek!
+        A következő ingerekre kerjük is válaszolj!</p>`}  
+          if (lang === "eng") {
+        return `<p>Now we are interested in how much the following stimuli affected you!
+        Please do not answer to the following stimuli!</p>`;
+      }
+    },
+        choices: ['Tovább']
+      };
+
+//trying to change the instruction based on the color of the stimuli
+ var valence_check = {
+        type: jsPsychHtmlSliderResponse,
+        stimulus: function() {
+          if (lang === "hun") {
+         return `<p>Kérlek, jelöld be -50 (negatívan) és 50 (pozitívan) között, hogy milyen mértékben hatottak rád az alábbi ${stim_colors[0]}ingerek!</p>`}
+         if (lang === "eng") {
+        return `<p>Please indicate on a scale from -50 (negatively) to 50 (positively) how much the following ${stim_colors[0]} stimuli affected you!</p>`;
+        }
+
+      },
+        //labels: ['egyáltalán nem (-50)', 'teljes mértékben (50)'],
+        min_label: 'egyáltalán nem',
+        max_label: 'teljes mértékben',
+        min: -50,
+        max: 50,
+        start: 0,
+        step: 1,
+        //slider_width: 500,
+        require_movement: true,
+        button_label: 'Tovább'
+      };
+
+var arousal_check = {
+        type: jsPsychHtmlSliderResponse,
+        stimulus: function() {
+          if (lang === "hun") {
+         return `<p>Kérlek, jelöld be -50 (negatívan) és 50 (pozitívan) között, hogy milyen mértékben hatottak rád az alábbi ${stim_colors[0]}ingerek!</p>`}
+         if (lang === "eng") {
+        return `<p>Please indicate on a scale from -50 (negatively) to 50 (positively) how much the following ${stim_colors[0]} stimuli affected you!</p>`;
+        }
+
+      },
+        labels: ['egyáltalán nem (-50)', 'teljes mértékben (50)'],
+        min_label: 'egyáltalán nem',
+        max_label: 'teljes mértékben',
+        min: -50,
+        max: 50,
+        start: 0,
+        step: 1,
+        //slider_width: 500,
+        require_movement: true,
+        button_label: 'Tovább'
+
+        }
+
+/*var prime_manipulation = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: jsPsych.timelineVariable('prime'),
+    choices: "NO_KEYS",
+	trial_duration: function(){return prime_duration},
+    data:{
+        task:"prime"
+    }
+}*/
+
+//Probe//
+/*var probe_trial = {
+    type: jsPsychHtmlKeyboardResponse,            
+    stimulus: jsPsych.timelineVariable('probe'),
+    choices: ["a", "e", "l", "n"],
+	stimulus_duration: function(){
+		console.log("stimdur: " + probe_stim_duration)
+		return probe_stim_duration},
+	trial_duration: function(){return probe_duration},
+   data: {
+        correct_response: jsPsych.timelineVariable('correct_response'),
+        task: "probe",
+        congruency: jsPsych.timelineVariable('congruency'),
+        name: jsPsych.timelineVariable('name')
+    },
+    on_finish: function(data) {
+        console.log(blockindex);
+        data.correct = data.response === data.correct_response;
+        }
+    }
+*/
+/// hardcoded manipulation check trials
+/*var manipulation_check_trials = [
+     {
+         prime: function() {
+         if (lang === "hun") {
+         return "<span style='font-size: 40px;'>le<br>le<br>le</span>"
+         }
+          if (lang === "eng") {
+          return "<span style='font-size: 40px;'>down<br>down<br>down</span>"
+          } 
+        },
+         probe: function() {
+         if (lang === "hun") {
+         return "<span style='font-size: 40px;'>le</span>"
+         }
+         if (lang === "eng") {
+        return "<span style='font-size: 40px;'>down</span>"
+          } 
+        },
+         congruency: "congruent",
+         correct_response: "n",
+         name: "manipulation_check",
+         color: "stimuli_color"
+     },
+     {
+         prime: function() {
+         if (lang === "hun") {
+         return "<span style='font-size: 40px;'>fel<br>fel<br>fel</span>"
+         }
+          if (lang === "eng") {
+          return "<span style='font-size: 40px;'>up<br>up<br>up</span>"
+          } 
+        },
+         probe: function() {
+         if (lang === "hun") {
+         return "<span style='font-size: 40px;'>fel</span>"
+         }
+         if (lang === "eng") {
+        return "<span style='font-size: 40px;'>up</span>"
+          } 
+        },
+    
+         congruency: "congruent",
+         correct_response: "e",
+         name: "manipulation_check",
+         color: "stimuli_color"
+
+     },
+     { 
+         prime: function() {
+         if (lang === "hun") {
+         return "<span style='font-size: 40px;'>bal<br>bal<br>bal</span>"
+         }
+         if (lang === "eng") {
+         return "<span style='font-size: 40px;'>left<br>left<br>left</span>"
+          } 
+        },
+         probe: function() {
+         if (lang === "hun") {
+         return "<span style='font-size: 40px;'>bal</span>"
+         }
+         if (lang === "eng") {
+        return "<span style='font-size: 40px;'>left</span>"
+          } 
+        },
+         congruency: "congruent",
+         correct_response: "a",
+         name: "manipulation_check",
+         color: "stimuli_color"
+      },
+      {
+         prime: function() {
+         if (lang === "hun") {
+         return "<span style='font-size: 40px;'>jobb<br>jobb<br>jobb</span>"
+         }
+          if (lang === "eng") {
+          return "<span style='font-size: 40px;'>right<br>right<br>right</span>"
+          } 
+        },
+         probe: function() {        
+         if (lang === "hun") {
+         return "<span style='font-size: 40px;'>jobb</span>"
+         }
+         if (lang === "eng") {
+        return "<span style='font-size: 40px;'>right</span>"
+          } 
+        },
+         congruency: "congruent",
+         correct_response: "l",
+         name: "manipulation_check",
+         color: "stimuli_color"
+      }
+      */
+ //   ]
+//const select_manipulation_trials = jsPsych.randomization.sampleWithoutReplacement(manipulation_check_trials, 3);
 
 //Intermission between experimental blocks
 const block_intermission = {
@@ -468,10 +656,17 @@ const block_intermission = {
   }
 };
 
+
+//const shuffled_neutrals = jsPsych.randomization.shuffle(manipulation_stimuli_color_neutral);
+//const selected_neutrals = shuffled_neutrals.slice(0, 3);
+
 //Full experiment timeline
 const full_experiment = [];
 experimental_blocks.forEach((block, index) => {
     full_experiment.push(block);
+    if (index < experimental_blocks.length - 1) {  
+        full_experiment.push(manipulation_check_instructions, valence_check, arousal_check);
+    }
     if (index < experimental_blocks.length - 1) {
         full_experiment.push(block_intermission);
     }
@@ -505,7 +700,6 @@ const debrief_trial = {
 //Adding full experiment and end trial to timeline
 timeline.push(...full_experiment, experiment_end, debrief_trial);
 return timeline
-
 }
 
 function startExperiment(timeline) {
