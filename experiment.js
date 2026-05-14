@@ -362,6 +362,23 @@ const practice_blocks_raw = [
     prime_probe_prac_trials.trials_block2
 ];
 
+//Preparing manipulation check stim variables
+
+var manipulation_trial_list = [
+	manipulation_trials.neutral_mani,
+	manipulation_trials.neutral_mani,
+	manipulation_trials.neutral_mani,
+	manipulation_trials.negative_mani,
+	manipulation_trials.negative_mani,
+	manipulation_trials.negative_mani,
+	manipulation_trials.positive_mani,
+	manipulation_trials.positive_mani,
+	manipulation_trials.positive_mani,
+]
+
+shuffled_mani_list = jsPsych.randomization.sampleWithoutReplacement(manipulation_trial_list, 9)
+console.log(shuffled_mani_list)
+
 const formatted_practice_blocks = practice_blocks_raw.map(
     (block, block_index) =>
         block.map(trial => format_prime_probe_trials(trial, block_index))
