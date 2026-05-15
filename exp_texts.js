@@ -7,7 +7,7 @@ const experiment_text = {"hun":{
 	"upprime":"fel<br>fel<br>fel",
 	"leftprime":"bal<br>bal<br>bal",
 	"rightprime":"jobb<br>jobb<br>jobb",
-    "welcome":`<img src="images/University_logo.png" alt="images/University Logo" style="width: 300px; display: block; margin: auto;">
+    "welcome":`<img src="images/University_logo.png" alt="images/University Logo" style="width: 30vh; display: block; margin: auto;">
             	<h2>Üdvözlünk a Metatudomány kutatócsoport vizsgálatában!</h2>
                 <p>Egy tudományos kutatásban veszel részt, amelynek vezetője Bognár Miklós, az ELTE Affektív Pszichológia Tanszékének kutatója. 
                 A kutatás célja megvizsgálni, hogy különböző ingertípusok miként hatnak a reakcióidőre.</p>
@@ -33,7 +33,7 @@ const experiment_text = {"hun":{
                 <p><strong>A kutatásban való részvételem körülményeiről részletes tájékoztatást kaptam, a feltételekkel egyetértek. 
                     Amennyiben egyetértesz a fenti feltételekkel, kattints az "Igen" gombra.</strong></p>`,
 	"data_handling":`<h2 style="text-align: center;">Adatkezelési tájékoztató</h2>
-            	<p style="text-align: justify; max-width: 800px; margin: auto;">Szigorúan bizalmasan kezelünk minden olyan személyes információt, amit a kutatás keretén belül gyűjtünk össze. 
+            	<p style="text-align: justify; max-width: 80vh; margin: auto;">Szigorúan bizalmasan kezelünk minden olyan személyes információt, amit a kutatás keretén belül gyűjtünk össze. 
                 A kutatás során nyert adatokat kóddal ellátva biztonságos számítógépeken tároljuk. A kutatás során nyert adatokat összegezzük. 
                 Az ELTE PPK Affektív Pszichológia Tanszék Metatudomány Kutatócsoportja, mint adatkezelő, fenti személyes adataidat bizalmasan kezeli, más adatkezelőnek, adatfeldolgozónak nem adja át.
                 E tényállás részleteit a <a href="http://metasciencelab.elte.hu/hozzajarulas-adatkezeleshez/" target=_blank">"Hozzájárulás adatkezeléshez"</a> c. dokumentum tartalmazza.</p>
@@ -92,20 +92,20 @@ const experiment_text = {"hun":{
 "practice_instruction":`<h2>Gyakorló blokk</h2>
             	<p>A kísérlet megkezdése előtt egy rövid gyakorló blokk következik. 
             	A próbák 80%-át jól kell teljesítened, különben a gyakorlás újra indul. Törekedj a minél gyorsabb és pontosabb válaszadásra! <br> Ha készen állsz, nyomj meg egy tetszőleges billentyűt a kezdéshez.</p>`,
-	"practice_intermission":`<div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px">
+	"practice_intermission":`<div style="text-align: center; max-width: 80vh; margin: auto; font-size: 2.4vh">
 				<p>Még egy rövid gyakorló blokk következik.<br>
 				 Törekedj a minél gyorsabb és pontosabb válaszadásra! <br> Ha készen állsz, nyomj meg egy tetszőleges billentyűt a kezdéshez.</p>
 				<p><strong>A blokk automatikusan elindul 2 perc múlva.</strong></p>
-				<p id="timer" style="font-size: 28px; color: darkred;">Kezdés: 2:00</p></div>`,
-	"practice_feedback_slow":`<div style='font-size:35px;'>Túl lassú!</div>`,
-	"practice_feedback_incorrect":`<div style='font-size:35px;'>Hibás válasz!</div>`,
+				<p id="timer" style="font-size: 2.8vh; color: darkred;">Kezdés: 2:00</p></div>`,
+	"practice_feedback_slow":`<div style='font-size:3.5vh;'>Túl lassú!</div>`,
+	"practice_feedback_incorrect":`<div style='font-size:3.5vh;'>Hibás válasz!</div>`,
 	"practice_end":`<p> A gyakorló rész véget ért. A kísérleti blokkok következnek. A kísérleti blokkokban nem fogsz visszajelzést kapni, ha túl lassú, vagy hibás választ adtál. Törekedj a minél gyorsabb és pontosabb válaszadásra!
         		Ne feledd, <span style="color: #FF3B3B; font-weight: bold;">piros</span> próbák esetén 17 garast vonunk le tőled. <span style="color: #00E676; font-weight: bold;">Zöld</span> próbák esetén 17 garast kapsz.
 				Ha készen állsz, nyomd meg a space billentyűt a kezdéshez.</p>
 				<img src="images/instruction_pic.png" alt="Hand placement instructions" style="width: 40%; height: auto;">
                 <p style="text-align: center;"><em>Amennyiben készen állsz a kísérlet megkezdésére, nyomd meg a space billentyűt!</em></p>`,
-	"debrief":`<div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px;">
-				<p style="font-weight: bold; font-size: 28px; margin-bottom: 25px;"> <h3>Kedves Résztvevő!</h3></p>
+	"debrief":`<div style="text-align: center; max-width: 80vh; margin: auto; font-size: 2.4vh;">
+				<p style="font-weight: bold; font-size: 2.8vh; margin-bottom: 2.5vh;"> <h3>Kedves Résztvevő!</h3></p>
 				<p>Köszönjük, hogy részt vettél a kutatásunkban! Ebben a kísérletben arra voltunk kíváncsiak, hogy a jutalmazó, illetve büntető ingerek miként befolyásolják a reakcióidőt ebben a válaszinterferencia feladatban.</p>
 				<p>A részvételednek köszönhetően lehetöségünk van megvizsgálni, azt hogy a büntetetés és a jutalmazás milyen hatással van agyunk egyik alapvető adaptációs mechanizmusára, melyet kognitív kontrollnak nevezünk. </p> 
 				<p>Ha bármilyen észrevételed, vagy kérdésed lenne a kutatással kapcsolatban írj a <a href="mailto:bognar.miklos@ppk.elte.hu">bognar.miklos@ppk.elte.hu</a>címre!</p>`},
@@ -118,7 +118,7 @@ const experiment_text = {"hun":{
 	"upprime":"up<br>up<br>up",
 	"leftprime":"left<br>left<br>left",
 	"rightprime":"right<br>right<br>right",
-	"welcome":`<img src="images/University_logo.png" alt="University Logo" style="width: 300px; display: block; margin: auto;">
+	"welcome":`<img src="images/University_logo.png" alt="University Logo" style="width: 30vh; display: block; margin: auto;">
 				<h2>Welcome to the study of the Metascience lab!</h2>
 				<p>You are taking part in a scientific study led by Miklós Bognár, a researcher at the Department of Affective Psychology at Eötvös Loránd University (ELTE).
 				The aim of this study is to examine how different types of stimuli affect reaction time.</p>
@@ -147,7 +147,7 @@ const experiment_text = {"hun":{
 				<p><strong>I have received detailed information about the circumstances of my participation in the study and agree to the conditions described above.
 				If you agree with the above conditions, please click the “Yes” button.</strong></p>`,
 	"data_handling":`<h2 style="text-align: center;">Data Management Information</h2>
-				<p style="text-align: justify; max-width: 800px; margin: auto;">
+				<p style="text-align: justify; max-width: 80vh; margin: auto;">
 				All personal information collected as part of this study will be treated strictly confidentially. 
 				Data collected during the study will be coded and stored on secure computers. The collected data will be aggregated. 
 				The Metascience Research Group of the Department of Affective Psychology at ELTE PPK, as the data controller, will handle your personal data confidentially and will not transfer it to any other data controller or processor.
@@ -208,13 +208,13 @@ const experiment_text = {"hun":{
 	"practice_instruction":`<h2>Practice Block</h2>
 				<p>Before the main experiment begins, you will complete a short practice block. 
 				You must correctly complete at least 80% of the trials, otherwise the practice block will start over. Try to respond as quickly and accurately as possible! <br> When you are ready, press any key to begin.</p>`,
-	"practice_intermission":`<div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px">
+	"practice_intermission":`<div style="text-align: center; max-width: 80vh; margin: auto; font-size: 2.4vh">
 				<p>Another short practice block will follow. <br> Try to respond as quickly and accurately as possible!<br>
 				When you are ready, press any key to begin.</p>
 				<p><strong>The block will automatically start in 2 minutes.</strong></p>
-				<p id="timer" style="font-size: 28px; color: darkred;">Start: 2:00</p></div>`,
-	"practice_feedback_slow": `<div style='font-size:35px;'>Too slow!</div>`,
-	"practice_feedback_incorrect": `<div style='font-size:35px;'>Incorrect response!</div>`,
+				<p id="timer" style="font-size: 2.8vh; color: darkred;">Start: 2:00</p></div>`,
+	"practice_feedback_slow": `<div style='font-size:3.5vh;'>Too slow!</div>`,
+	"practice_feedback_incorrect": `<div style='font-size:3.5vh;'>Incorrect response!</div>`,
 	"practice_end":`<p>The practice block has ended. The main experimental blocks will follow.
 				During the experimental blocks, you will not receive feedback if your response is too slow or incorrect. Try to respond as quickly and accurately as possible!
 				Remember, <span style="color: #FF3B3B; font-weight: bold;">red</span> trials will deduct 17 coins from your total. 
@@ -223,8 +223,8 @@ const experiment_text = {"hun":{
 				<br> 
 				<img src="images/instruction_pic.png" alt="Hand placement instructions" style="width: 40%; height: auto;"> 
 				<p style="text-align: center;"><em>When you are ready to begin the main experiment, press the spacebar!</em></p></div>`,
-	"debrief":`<div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px;">
-				<p style="font-weight: bold; font-size: 28px; margin-bottom: 25px;"> <h3>Dear Participant!</h3></p>
+	"debrief":`<div style="text-align: center; max-width: 80vh; margin: auto; font-size: 2.4vh;">
+				<p style="font-weight: bold; font-size: 2.8vh; margin-bottom: 2.5vh;"> <h3>Dear Participant!</h3></p>
 				<p>Thank you for participating in our study! In this experiment, we were interested in how rewarding and punishing stimuli affect reaction time in a response interference task.</p>
 				<p>Your participation allows us to examine how punishment and reward influence one of the fundamental adaptive mechanisms of our brain, known as cognitive control.</p> 
 				<p>If you have any comments or questions about the study, please contact us at <a href="mailto:bognar.miklos@ppk.elte.hu">bognar.miklos@ppk.elte.hu</a></p>`

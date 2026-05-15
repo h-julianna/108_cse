@@ -56,7 +56,7 @@ console.log('Experiment number: ', experiment_number);
 //Fixation
 const fixation = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: '<div style="font-size:60px;">+</div>',
+    stimulus: '<div style="font-size:9vh;">+</div>',
     choices: "NO_KEYS",
     trial_duration: debug ? 1 : Math.random() * (600 - 400) + 400,
     data: {
@@ -73,9 +73,9 @@ const prime = {
 	myprime = experiment_text[lang][primestim]
 	primecolor = jsPsych.evaluateTimelineVariable('color')
 	 if(experiment_number == 2){
-	    	return `<span style="font-size:40px; color:${stim_colors[primecolor]};">${myprime}</span>`
+	    	return `<span style="font-size:7vh; line-height: 0.9; color:${stim_colors[primecolor]};">${myprime}</span>`
 	    }else{
-		return `<span style="font-size:40px;">${myprime}</span>`
+		return `<span style="font-size:7vh; line-height: 0.9;">${myprime}</span>`
 	    }
    },
     choices: 'NO_KEYS',
@@ -105,9 +105,9 @@ const probe = {
 	    probecolor = jsPsych.evaluateTimelineVariable('color')
 	    myprobe = experiment_text[lang][probestim]
 	    if(experiment_number == 1){
-	    	return `<span style="font-size:40px; color:${stim_colors[probecolor]};">${myprobe}</span>`
+	    	return `<span style="font-size:7vh; color:${stim_colors[probecolor]};">${myprobe}</span>`
 	    }else{
-		return `<span style="font-size:40px;">${myprobe}</span>`
+		return `<span style="font-size:7vh;">${myprobe}</span>`
 	    }
     },
     choices: ['a', 'e', 'n', 'l'],
@@ -219,7 +219,7 @@ const informed_consent_trial = {
     response_ends_trial: true,
         on_finish: function(data) {
             if (data.response == 1) {
-                jsPsych.abortExperiment(`<p style="text-align: justify; max-width: 800px; margin: auto; font-size: 24px; font-weight: bold"> 
+                jsPsych.abortExperiment(`<p style="text-align: justify; max-width: 80vh; margin: auto; font-size: 2.4vh; font-weight: bold"> 
                     ${lang === "eng" ? "The experiment is over. Thank you for participating in the study!" : "A kísérlet véget ért. Köszönjük, hogy részt vettél a vizsgálatban!"}</p>`);
             }
         }
@@ -235,7 +235,7 @@ const data_handling_trial = {
     response_ends_trial: true,
         on_finish: function(data) {
             if (data.response == 1) {
-                jsPsych.abortExperiment(`<p style="text-align: justify; max-width: 800px; margin: auto; font-size: 24px; font-weight: bold"> 
+                jsPsych.abortExperiment(`<p style="text-align: justify; max-width: 80vh; margin: auto; font-size: 2.4vh; font-weight: bold"> 
                     ${lang === "eng" ? "The experiment is over. Thank you for participating in the study!" : "A kísérlet véget ért. Köszönjük, hogy részt vettél a vizsgálatban!"}</p>`);
             }
         }
@@ -395,10 +395,10 @@ const block_intro = (block_index) => ({
     type:jsPsychHtmlKeyboardResponse,
     stimulus: () => {
         if (lang === "eng") {
-            return `<div style="text-align:center; font-size:24px;">
+            return `<div style="text-align:center; font-size:2.4vh;">
                 <h2>Block ${block_index + 1} is starting</h2></div>`;
         } else {
-            return `<div style="text-align:center; font-size:24px;">
+            return `<div style="text-align:center; font-size:2.4vh;">
                 <h2>Blokk ${block_index + 1} kezdődik</h2></div>`;
         }
     },    
@@ -429,11 +429,11 @@ var manipulation_check_instructions = {
         type: jsPsychHtmlButtonResponse,
         stimulus: function ( ) {
           if (lang === "hun") {
-        return `<p>Most arra vagyunk kíváncsiak, hogy milyen mértékben hatottak rád (?) az alábbi ingerek!
-        Kérjük a következő ingerekre is válaszolj!</p>`}  
+        return `<p>Most arra vagyunk kíváncsiak, hogyan érzed magad a következő három inger láttán!
+        Kérjük válaszolj a következő három ingerre, ahogy eddig is tetted!</p>`}  
           if (lang === "eng") {
-        return `<p>Now we are interested in how much the following stimuli affected you!
-        Please give an answer to the following stimuli!</p>`;
+        return `<p>Now we would like to find out how you feel when you see the following three stimuli!
+        Please respond to the following three stimuli, like you did beforehand!</p>`;
       }
     },
         choices: [experiment_text[lang]["button_press"]],
@@ -447,15 +447,14 @@ var manipulation_check_instructions = {
         type: jsPsychHtmlSliderResponse,
         stimulus: function() {
           if (lang === "hun") {
-         return `<p>Kérlek, jelöld be -50 (negatívan) és 50 (pozitívan) között, hogy milyen mértékben hatottak rád az alábbi ingerek!</p>`}
+         return `<p>Kérjük, jelöld be az alábbi csúszkán, hogy mennyire volt kellemes vagy kellemetlen az előbb látott három inger -50 (nagyon kellemetlen) és 50 (nagyon kellemes) között </p>`}
          if (lang === "eng") {
-        return `<p>Please indicate on a scale from -50 (extremely unpleasant) to 50 (extremely pleasant) how much the following stimuli affected you!</p>`;
+        return `<p>Please indicate on the slider below, how unpleasant or pleasant the previous three stimuli were from -50 (extremely unpleasant) to 50 (extremely pleasant)</p>`;
         }
-
       },
         labels: [
-          lang === "hun" ? 'egyáltalán nem (-50)' : 'not at all (-50)',
-          lang === "hun" ? 'teljes mértékben (50)' : 'completely (50)'
+          lang === "hun" ? '-50 (nagyon kellemetlen)' : '-50 (extremely unpleasant)',
+          lang === "hun" ? '50 (nagyon kellemes)' : '50 (extremely pleasant)'
         ],
         min_label: -50,
         max_label: 50,
@@ -480,15 +479,14 @@ var arousal_check = {
         type: jsPsychHtmlSliderResponse,
         stimulus: function() {
           if (lang === "hun") {
-         return `<p>Kérlek, jelöld be -50 (nyugodt) és 50 (stresszes/izgatott) között, hogy milyen mértékben hatottak rád az alábbi ingerek!</p>`}
+         return `<p>Kérjük, jelöld be az alábbi csúszkán, hogy mennyire érezted magad nyugodtnak vagy izgatottnak/idegesnek az előbb látott három inger közben: -50 (nagyon nyugodt) és 50 (nagyon izgatott/ideges)</p>`}
          if (lang === "eng") {
-        return `<p>Please indicate on a scale from -50 (calm) to 50 (excited/anxious) how much the following stimuli affected you!</p>`;
+        return `<p>Please indicate on the slider below, how calm or excited/anxious you felt during the previous three stimuli from -50 (extremely unpleasant) to 50 (extremely pleasant)</p>`;
         }
-
       },
         labels: [
-          lang === "hun" ? 'egyáltalán nem (-50)' : 'not at all (-50)',
-          lang === "hun" ? 'teljes mértékben (50)' : 'completely (50)'
+          lang === "hun" ? '-50 (nagyon nyugodt)' : '-50 (extremely calm)',
+          lang === "hun" ? '50 (nagyon izgatott/ideges)' : '50 (extremely excited/anxious)'
         ],
         max_label: 50,
         min: -50,
@@ -504,9 +502,8 @@ var arousal_check = {
         on_finish: function(data) {
             if(data) {
         data.arousal_data = data.response;
-    }
-
-        },
+                }
+            },
         };
 
 //Preparing manipulation check stim variables
@@ -524,6 +521,7 @@ var manipulation_trial_list = [
 
 shuffled_mani_list = jsPsych.randomization.sampleWithoutReplacement(manipulation_trial_list, 9)
 console.log("Manipulation shuffled list:", shuffled_mani_list);
+
 //Intermission between experimental blocks
 const block_intermission = {
   type: jsPsychHtmlKeyboardResponse,
@@ -531,21 +529,21 @@ const block_intermission = {
     const money_color = money < 2000 ? "#FF3B3B" : (money > 2000 ? "#28a745" : "#ffffff");
     if (lang === "eng") {
         return `
-      <div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px">
+      <div style="text-align: center; max-width: 80vh; margin: auto; font-size: 2.4vh">
         <p><strong>End of block.</strong></p>
         <p>You currently have <strong style="color: ${money_color};">${money} coins</strong>. When you are ready, press any key to continue.</p>
         <p>Take a short break, then press any key to start the next block. Try to respond as quickly and accurately as possible!</p>
         <p><strong>The next block will automatically start in 2 minutes.</strong></p>
-        <p id="timer" style="font-size: 28px; color: darkred;">Starting in: 2:00</p>
+        <p id="timer" style="font-size: 2.8vh; color: darkred;">Starting in: 2:00</p>
       </div>`;
     }     
     return `
-      <div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px">
+      <div style="text-align: center; max-width: 80vh; margin: auto; font-size: 2.4vh">
         <p><strong>Blokk vége.</strong></p>
         <p>Összesen <strong style="color: ${money_color};">${money} garasod</strong> van.</p>
         <p>Pihenj egy kicsit, majd nyomj meg egy billentyűt a következő blokk kezdéséhez. Törekedj a minél gyorsabb és pontosabb válaszadásra!</p>
         <p><strong>A következő blokk automatikusan elindul 2 perc múlva.</strong></p>
-        <p id="timer" style="font-size: 28px; color: darkred;">Kezdés: 2:00</p>
+        <p id="timer" style="font-size: 2.8vh; color: darkred;">Kezdés: 2:00</p>
       </div>`;
   },
   choices: debug ? "NO_KEYS" : "ALL_KEYS",
