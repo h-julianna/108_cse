@@ -447,9 +447,9 @@ var manipulation_check_instructions = {
         type: jsPsychHtmlSliderResponse,
         stimulus: function() {
           if (lang === "hun") {
-         return `<p>Kérjük, jelöld be az alábbi csúszkán, hogy mennyire volt kellemes vagy kellemetlen az előbb látott három inger -50 (nagyon kellemetlen) és 50 (nagyon kellemes) között </p>`}
+         return `<p>Kérjük, jelöld be az alábbi csúszkán, hogy mennyire volt kellemes vagy kellemetlen az előbb látott három inger.</p>`}
          if (lang === "eng") {
-        return `<p>Please indicate on the slider below, how unpleasant or pleasant the previous three stimuli were from -50 (extremely unpleasant) to 50 (extremely pleasant)</p>`;
+        return `<p>Please indicate on the slider below, how unpleasant or pleasant the previous three stimuli were.</p>`;
         }
       },
         labels: [
@@ -479,9 +479,9 @@ var arousal_check = {
         type: jsPsychHtmlSliderResponse,
         stimulus: function() {
           if (lang === "hun") {
-         return `<p>Kérjük, jelöld be az alábbi csúszkán, hogy mennyire érezted magad nyugodtnak vagy izgatottnak/idegesnek az előbb látott három inger közben: -50 (nagyon nyugodt) és 50 (nagyon izgatott/ideges)</p>`}
+         return `<p>Kérjük, jelöld be az alábbi csúszkán, hogy mennyire érezted magad nyugodtnak vagy izgatottnak/idegesnek az előbb látott három inger közben.</p>`}
          if (lang === "eng") {
-        return `<p>Please indicate on the slider below, how calm or excited/anxious you felt during the previous three stimuli from -50 (extremely unpleasant) to 50 (extremely pleasant)</p>`;
+        return `<p>Please indicate on the slider below, how calm or excited/anxious you felt during the previous three stimuli.</p>`;
         }
       },
         labels: [

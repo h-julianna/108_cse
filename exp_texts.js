@@ -62,6 +62,8 @@ const experiment_text = {"hun":{
                 Ha viszont <span style="color: #00E676; font-weight: bold;">zöld</span> színű célingert látsz, 17 garas a jutalmad. 
                 A neutrális próbákat három szín fogja jelölni: <span style="color: #2979FF; font-weight: bold;">kék</span>, <span style="color: #FFD700; font-weight: bold;">sárga</span> és <span style="color: #E040FB; font-weight: bold;">rózsaszín</span>. Ezeknél a próbáknál sem jutalom, sem büntetés nem jár.</p> 
 								<p>Minden blokk végén látni fogod, mennyi garassal rendelkezel. Az utolsó blokk végén a kísérletért járó pontszám az eredményedtől függ: 1800 garas alatt 2,5 pont, 2200 garas felett 3,5 pont, a kettő között pedig a kiinduló 3 pont marad. </p>
+								<h3>Figyelem: A pontszerzés feltétele, hogy az ingerek minimum 70%-át helyesen megválaszold.</h3>
+								<h3>70%-os teljesítmény alatt (túl lassú, vagy pontatlan válaszoknál) 0 pontot kapsz a kísérletre. </h3>
                 <p>Kérlek helyezd a billentyűzetre a kezedet a képen látható módon:</p>
                 <p>A bal gyűrűsujjadat tedd az <span class='key'>A</span>-ra. Ez lesz a "BAL" irány. 
                 A jobb gyűrűsujjadat az <span class='key'>L</span>-re, ez fogja jelölni a "JOBB" irányt. 
@@ -79,7 +81,7 @@ const experiment_text = {"hun":{
                 A neutrális próbákon (<span style="color: #2979FF; font-weight: bold;">kék</span>, <span style="color: #FFD700; font-weight: bold;">sárga</span> és <span style="color: #E040FB; font-weight: bold;">rózsaszín</span>) sem jutalom, sem levonás nem jár.</p> 
 <h3>Minden ingerre, minden esetben, a színétől függetlenül válaszolj!</h3>
 <img src="images/probe_press_hun.png" alt="Hand placement instructions" style="width: 40%; height: 40%;">
-                                                                <p> Minden blokk végén látni fogod, mennyi garassal rendelkezel. Az utolsó blokk végén a kísérletért járó pontszám az eredményedtől függ: 1800 garas alatt 2,5 pont, 2200 garas felett 3,5 pont, a kettő között pedig a kiinduló 3 pont marad. </p>
+                <p> Minden blokk végén látni fogod, mennyi garassal rendelkezel. Az utolsó blokk végén a kísérletért járó pontszám az eredményedtől függ: 1800 garas alatt 2,5 pont, 2200 garas felett 3,5 pont, a kettő között pedig a kiinduló 3 pont marad. </p>
 								<h3>Figyelem: A pontszerzés feltétele, hogy az ingerek minimum 70%-át helyesen megválaszold.</h3>
 								<h3>70%-os teljesítmény alatt (túl lassú, vagy pontatlan válaszoknál) 0 pontot kapsz a kísérletre. </h3>
                 <p>Kérlek helyezd a billentyűzetre a kezedet a képen látható módon:</p>
@@ -175,11 +177,13 @@ const experiment_text = {"hun":{
 				Your task is to press the corresponding key as <strong>quickly and accurately</strong> as possible to indicate the direction of the target.</p>
 				<p>You will start the experiment with 2000 coins. During the experiment a random generator will change the color of prime stimuli randomly regardless of your performance. The colors will indicate a change in your total coins:
 				When the probe appears in <span style="color: #FF3B3B; font-weight: bold;">red</span>, 17 coins will be deducted from your total. 
-				If the probe is <span style="color: #00E676; font-weight: bold;">green</span>, you will receive a reward of 17 coins. 
+				If the probe is <span style="color: #00E676; font-weight: bold;">green</span>, you will receive a reward of 17 coins.
 				Neutral probe trials are indicated by three colors: <span style="color: #2979FF; font-weight: bold;">blue</span>, <span style="color: #FFD700; font-weight: bold;">yellow</span>, and <span style="color: #E040FB; font-weight: bold;">pink</span>. 
 				No reward or punishment applies to these neutral probe trials.</p>
 				<p>At the end of each block, you will see how many coins you have. At the end of the final block, your score depends on the number of coins: if it is below 2000, you receive 2.5 points, if it is above 2000, you receive 3.5 points. If you finish with exactly 2000 coins, the base score of 3 points remains.</p>
-				<h3>Respond to every target as quickly and accuratly as possible regardless of color</h3>
+				<h3>Attention: The condition for earning points is that you must correctly answer at least 70% of the stimuli.</h3>
+				<h3>Below 70% performance (too slow, or incorrect answers) will result in 0 points for the experiment. </h3> 
+				<h3>Respond to every target as quickly and accurately as possible regardless of color.</h3>
 <img src="images/probe_press_eng.png" alt="Hand placement instructions" style="width: 40%; height: 40%;">
 
 				<p>Please place your fingers on the keyboard as shown in the picture:</p>
@@ -197,11 +201,13 @@ const experiment_text = {"hun":{
 				Your task is to press the corresponding key as quickly and accurately as possible to indicate the direction of the target.</p>	
 				<p>You will start the experiment with 2000 coins. During the experiment a random generator will change the color of prime stimuli randomly regardless of your performance. The colors will indicate a change in your total coins:
 				When the prime appears in <span style="color: #FF3B3B; font-weight: bold;">red</span>, 17 coins will be deducted from your total. 
-				If the prime is <span style="color: #00E676; font-weight: bold;">green</span>, you will receive a reward of 17 coins. 
+				If the prime is <span style="color: #00E676; font-weight: bold;">green</span>, you will receive a reward of 17 coins.
 				Neutral prime trials are indicated by three colors: <span style="color: #2979FF; font-weight: bold;">blue</span>, <span style="color: #FFD700; font-weight: bold;">yellow</span>, and <span style="color: #E040FB; font-weight: bold;">pink</span>. 
 				No reward or punishment applies to these neutral prime trials.</p>
 				<p>At the end of each block, you will see how many coins you have. At the end of the final block, your score depends on the number of coins: if it is below 2000, you receive 2.5 points, if it is above 2000, you receive 3.5 points. If you finish with exactly 2000 coins, the base score of 3 points remains. </p>
-				<h3>Respond to every target as quickly and accuratly as possible regardless of color</h3>
+				<h3>Attention: The condition for earning points is that you must correctly answer at least 70% of the stimuli.</h3>
+				<h3>Below 70% performance (too slow, or incorrect answers) will result in 0 points for the experiment. </h3> 
+				<h3>Respond to every target as quickly and accurately as possible regardless of color.</h3>
 <img src="images/probe_press_eng.png" alt="Hand placement instructions" style="width: 40%; height: 40%;">
 
 				<p>Please place your fingers on the keyboard as shown in the picture:</p>
