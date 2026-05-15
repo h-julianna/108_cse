@@ -125,7 +125,7 @@ const experiment_text = {"hun":{
 				<p>You are taking part in a scientific study led by Miklós Bognár, a researcher at the Department of Affective Psychology at Eötvös Loránd University (ELTE).
 				The aim of this study is to examine how different types of stimuli affect reaction time.</p>
 				<h3>Participation</h3>
-				<p>Participation in this study is entirely voluntary. You may withdraw from the study at any time without providing a reason.
+				<p>Participation in this study is entirely voluntary. You may withdraw from the study at any time without providing a reason. ATTENTION: This experiment contains flashing lights.
 				If you have any questions, comments, or concerns regarding the study, please contact Miklós Bognár at <a href="mailto:bognar.miklos@ppk.elte.hu">bognar.miklos@ppk.elte.hu</a>.</p>`,
 	"button_press":`Continue`,
 	"yes/no": ["Yes", "No"],
