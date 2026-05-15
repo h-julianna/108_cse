@@ -219,7 +219,7 @@ const informed_consent_trial = {
     response_ends_trial: true,
         on_finish: function(data) {
             if (data.response == 1) {
-                jsPsych.abortExperiment(`<p style="text-align: justify; max-width: 80vh; margin: auto; font-size: 2.4vh; font-weight: bold"> 
+                jsPsych.abortExperiment(`<p style="text-align: justify; max-width: 800px; margin: auto; font-size: 24px; font-weight: bold"> 
                     ${lang === "eng" ? "The experiment is over. Thank you for participating in the study!" : "A kísérlet véget ért. Köszönjük, hogy részt vettél a vizsgálatban!"}</p>`);
             }
         }
@@ -235,7 +235,7 @@ const data_handling_trial = {
     response_ends_trial: true,
         on_finish: function(data) {
             if (data.response == 1) {
-                jsPsych.abortExperiment(`<p style="text-align: justify; max-width: 80vh; margin: auto; font-size: 2.4vh; font-weight: bold"> 
+                jsPsych.abortExperiment(`<p style="text-align: justify; max-width: 800px; margin: auto; font-size: 24px; font-weight: bold"> 
                     ${lang === "eng" ? "The experiment is over. Thank you for participating in the study!" : "A kísérlet véget ért. Köszönjük, hogy részt vettél a vizsgálatban!"}</p>`);
             }
         }
@@ -395,10 +395,10 @@ const block_intro = (block_index) => ({
     type:jsPsychHtmlKeyboardResponse,
     stimulus: () => {
         if (lang === "eng") {
-            return `<div style="text-align:center; font-size:2.4vh;">
+            return `<div style="text-align:center; font-size:24px;">
                 <h2>Block ${block_index + 1} is starting</h2></div>`;
         } else {
-            return `<div style="text-align:center; font-size:2.4vh;">
+            return `<div style="text-align:center; font-size:24px;">
                 <h2>Blokk ${block_index + 1} kezdődik</h2></div>`;
         }
     },    
@@ -529,21 +529,21 @@ const block_intermission = {
     const money_color = money < 2000 ? "#FF3B3B" : (money > 2000 ? "#28a745" : "#ffffff");
     if (lang === "eng") {
         return `
-      <div style="text-align: center; max-width: 80vh; margin: auto; font-size: 2.4vh">
+      <div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px">
         <p><strong>End of block.</strong></p>
         <p>You currently have <strong style="color: ${money_color};">${money} coins</strong>. When you are ready, press any key to continue.</p>
         <p>Take a short break, then press any key to start the next block. Try to respond as quickly and accurately as possible!</p>
         <p><strong>The next block will automatically start in 2 minutes.</strong></p>
-        <p id="timer" style="font-size: 2.8vh; color: darkred;">Starting in: 2:00</p>
+        <p id="timer" style="font-size: 28px; color: darkred;">Starting in: 2:00</p>
       </div>`;
     }     
     return `
-      <div style="text-align: center; max-width: 80vh; margin: auto; font-size: 2.4vh">
+      <div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px">
         <p><strong>Blokk vége.</strong></p>
         <p>Összesen <strong style="color: ${money_color};">${money} garasod</strong> van.</p>
         <p>Pihenj egy kicsit, majd nyomj meg egy billentyűt a következő blokk kezdéséhez. Törekedj a minél gyorsabb és pontosabb válaszadásra!</p>
         <p><strong>A következő blokk automatikusan elindul 2 perc múlva.</strong></p>
-        <p id="timer" style="font-size: 2.8vh; color: darkred;">Kezdés: 2:00</p>
+        <p id="timer" style="font-size: 28px; color: darkred;">Kezdés: 2:00</p>
       </div>`;
   },
   choices: debug ? "NO_KEYS" : "ALL_KEYS",
