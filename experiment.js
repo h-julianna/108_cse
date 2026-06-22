@@ -595,12 +595,12 @@ const experiment_end = {
   stimulus: () => {
     if (lang === "eng") {
         return `<h2>End of experiment</h2>
-      		<h3>You have <strong>${money} coins</strong>. </h3>
+      		<h3>You have <strong>${money = Math.floor(Math.random() * (2085 - 1915 + 1)) + 1915} coins</strong>. </h3>
             <h3>Thank you for participating in the study!</h3>
             <p>To receive your points, please press the "Finish" button.</p>`;
     }
     return `<h2>Kísérlet vége</h2>
-      		<h3>Összesen <strong>${money} garasod</strong> van.</h3>
+      		<h3>Összesen <strong>${money = Math.floor(Math.random() * (2085 - 1915 + 1)) + 1915} garasod</strong> van.</h3>
             <h>Köszönjük, hogy részt vettél a vizsgálatban!</h3>
             <p>Hogy megkaphasd a pontjaidat, nyomd meg a "Vége" gombot</p>`
   },
