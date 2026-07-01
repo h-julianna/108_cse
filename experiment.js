@@ -31,8 +31,10 @@ var experiment_text = experiment_text
 var debug = debug;
 var lang = lang;
 var experiment_number = experiment_number;
+var money = Math.floor(Math.random() * (2200 - 1800 + 1)) + 1800; 
+console.log(`Money starting amount: ${money}`);
 let instruction_key = experiment_number === 2 ? "instruction_exp2" : "instruction_exp1";
-let instruction_text = experiment_text[lang][instruction_key];
+let instruction_text = experiment_text[lang][instruction_key].replace("{{MONEY}}", money);
 //Creating timeline
 const timeline = [];
 
@@ -47,7 +49,7 @@ let durations = {
     probe_stim_duration: debug ? 1 : 133,
     probe_trial_duration: debug ? 1 : 1000
 }
-let money = 2000;
+
 let in_practice = true; //Flagging practice block to later exclude it from money calculation
 console.log('Running in JATOS: ', running_jatos);
 console.log('Debug mode: ', debug);
@@ -126,13 +128,14 @@ const probe = {
     on_finish: function (data) {
         //console.log('Response data:', data);
         //console.log('Key pressed:', data.response);
+        data.trial_money = money;
        data.correct = data.response?.toLowerCase() === data.correct_response?.toLowerCase(); //upper case responses are deemed correct as well
         if(!in_practice) {
         if (data.color === "red") {
-        money -= 17;
+        money -= 47;
     }
         if (data.color === "green") {
-        money += 17;
+        money += 47;
             }
         }
     }
@@ -424,7 +427,6 @@ const experimental_blocks = randomized_stimuli_per_participant.map(
     })
 );
 //// MANIPULATION CHECKS
-
 var manipulation_check_instructions = {
         type: jsPsychHtmlButtonResponse,
         stimulus: function ( ) {
@@ -595,12 +597,12 @@ const experiment_end = {
   stimulus: () => {
     if (lang === "eng") {
         return `<h2>End of experiment</h2>
-      		<h3>You have <strong>${money = Math.floor(Math.random() * (2085 - 1915 + 1)) + 1915} coins</strong>. </h3>
+      		<h3>You have <strong>${money} coins</strong>. </h3>
             <h3>Thank you for participating in the study!</h3>
             <p>To receive your points, please press the "Finish" button.</p>`;
-    }
+    };
     return `<h2>Kísérlet vége</h2>
-      		<h3>Összesen <strong>${money = Math.floor(Math.random() * (2085 - 1915 + 1)) + 1915} garasod</strong> van.</h3>
+      		<h3>Összesen <strong>${money} garasod</strong> van.</h3>
             <h>Köszönjük, hogy részt vettél a vizsgálatban!</h3>
             <p>Hogy megkaphasd a pontjaidat, nyomd meg a "Vége" gombot</p>`
   },

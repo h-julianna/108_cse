@@ -58,8 +58,8 @@ const experiment_text = {"hun":{
                 A kísérlet során iránymegjelöléseket fogsz olvasni (FEL, LE, JOBB, BAL). Először egy prime inger fog megjelenni a képernyőn, amin egy irány (pl.: „FEL”) lesz olvasható egymás alatt háromszor. 
                 Ezt követően megjelenik a célinger, ami vagy azonos („FEL”) vagy ellentétes („LE”) lesz az előtte bemutatott iránnyal.
                 A feladatod az lesz, hogy minél gyorsabban és pontosabban eltaláld a célinger irányát a hozzárendelt billentyű megnyomásával.</p> 
-                <p>A kísérletet 2000 garassal kezded. Amikor a célinger <span style="color: #FF3B3B; font-weight: bold;">piros</span> színű, akkor 17 garast vonunk le tőled.
-                Ha viszont <span style="color: #00E676; font-weight: bold;">zöld</span> színű célingert látsz, 17 garas a jutalmad. 
+                <p>A kísérletet {{MONEY}} garassal kezded. Amikor a célinger <span style="color: #FF3B3B; font-weight: bold;">piros</span> színű, akkor 47 garast vonunk le tőled.
+                Ha viszont <span style="color: #00E676; font-weight: bold;">zöld</span> színű célingert látsz, 47 garas a jutalmad. 
                 A neutrális próbákat három szín fogja jelölni: <span style="color: #2979FF; font-weight: bold;">kék</span>, <span style="color: #FFD700; font-weight: bold;">sárga</span> és <span style="color: #E040FB; font-weight: bold;">rózsaszín</span>. Ezeknél a próbáknál sem jutalom, sem büntetés nem jár.</p> 
 								<p>Minden blokk végén látni fogod, mennyi garassal rendelkezel. Az utolsó blokk végén a kísérletért járó pontszám az eredményedtől függ: 1800 garas alatt 2,5 pont, 2200 garas felett 3,5 pont, a kettő között pedig a kiinduló 3 pont marad. </p>
 								<h3>Figyelem: A pontszerzés feltétele, hogy az ingerek minimum 70%-át helyesen megválaszold.</h3>
@@ -76,8 +76,8 @@ const experiment_text = {"hun":{
                 A kísérlet során iránymegjelöléseket fogsz olvasni (FEL, LE, JOBB, BAL). Először egy prime inger fog megjelenni a képernyőn, amin egy irány (pl.: „FEL”) lesz olvasható egymás alatt háromszor. <strong> Erre az ingerre ne válaszolj!</strong>
                 Ezt követően megjelenik a célinger, ami vagy azonos („FEL”) vagy ellentétes („LE”) lesz az előtte bemutatott iránnyal. <strong>Erre a célingerre kell válaszolni</strong>
                 A feladatod az lesz, hogy minél <strong>gyorsabban és pontosabban</strong> eltaláld a célinger irányát a hozzárendelt billentyű megnyomásával.</p> 
-                <p>A kísérletet 2000 garassal kezded. A kísérlet közben egy véletlengeneráló algoritmus működik, ami mindentől függetlenül levon, vagy hozzáad az összes garasodhoz valamennyi összeget. Ennek a működését semmilyen módon nem tudod befolyásolni, a levonások és a hozzáadások függetlenek a teljesítménytől.  Amikor a prime-inger <span style="color: #FF3B3B; font-weight: bold;">piros</span> színű, akkor 17 garast von le tőled a gép.
-                Ha viszont <span style="color: #00E676; font-weight: bold;">zöld</span> színű prime-ingert látsz, 17 garassal növekszik az összes garasod. 
+                <p>A kísérletet {{MONEY}} garassal kezded. A kísérlet közben egy véletlengeneráló algoritmus működik, ami mindentől függetlenül levon, vagy hozzáad az összes garasodhoz valamennyi összeget. Ennek a működését semmilyen módon nem tudod befolyásolni, a levonások és a hozzáadások függetlenek a teljesítménytől.  Amikor a prime-inger <span style="color: #FF3B3B; font-weight: bold;">piros</span> színű, akkor 47 garast von le tőled a gép.
+                Ha viszont <span style="color: #00E676; font-weight: bold;">zöld</span> színű prime-ingert látsz, 47 garassal növekszik az összes garasod. 
                 A neutrális próbákon (<span style="color: #2979FF; font-weight: bold;">kék</span>, <span style="color: #FFD700; font-weight: bold;">sárga</span> és <span style="color: #E040FB; font-weight: bold;">rózsaszín</span>) sem jutalom, sem levonás nem jár.</p> 
 <h3>Minden ingerre, minden esetben, a színétől függetlenül válaszolj!</h3>
 <img src="images/probe_press_hun.png" alt="Hand placement instructions" style="width: 40%; height: 40%;">
@@ -103,14 +103,14 @@ const experiment_text = {"hun":{
 	"practice_feedback_slow":`<div style='font-size:35px;'>Túl lassú!</div>`,
 	"practice_feedback_incorrect":`<div style='font-size:35px;'>Hibás válasz!</div>`,
 	"practice_end":`<p> A gyakorló rész véget ért. A kísérleti blokkok következnek. A kísérleti blokkokban nem fogsz visszajelzést kapni, ha túl lassú, vagy hibás választ adtál. Törekedj a minél gyorsabb és pontosabb válaszadásra!
-        		Ne feledd, <span style="color: #FF3B3B; font-weight: bold;">piros</span> próbák esetén 17 garast vonunk le tőled. <span style="color: #00E676; font-weight: bold;">Zöld</span> próbák esetén 17 garast kapsz.
+        		Ne feledd, <span style="color: #FF3B3B; font-weight: bold;">piros</span> próbák esetén 47 garast vonunk le tőled. <span style="color: #00E676; font-weight: bold;">Zöld</span> próbák esetén 47 garast kapsz.
 				Ha készen állsz, nyomd meg a space billentyűt a kezdéshez.</p>
 				<img src="images/instruction_pic.png" alt="Hand placement instructions" style="width: 40%; height: auto;">
                 <p style="text-align: center;"><em>Amennyiben készen állsz a kísérlet megkezdésére, nyomd meg a space billentyűt!</em></p>`,
 	"debrief":`<div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px;">
 				<p style="font-weight: bold; font-size: 28px; margin-bottom: 25px;"> <h3>Kedves Résztvevő!</h3></p>
 				<p>Köszönjük, hogy részt vettél a kutatásunkban! Ebben a kísérletben arra voltunk kíváncsiak, hogy a jutalmazó, illetve büntető ingerek miként befolyásolják a reakcióidőt ebben a válaszinterferencia feladatban.</p>
-				<p>A részvételednek köszönhetően lehetöségünk van megvizsgálni, azt hogy a büntetetés és a jutalmazás milyen hatással van agyunk egyik alapvető adaptációs mechanizmusára, melyet kognitív kontrollnak nevezünk. </p> 
+				<p>A részvételednek köszönhetően lehetőségünk van megvizsgálni, azt hogy a büntetetés és a jutalmazás milyen hatással van agyunk egyik alapvető adaptációs mechanizmusára, melyet kognitív kontrollnak nevezünk. </p> 
 				<p>Ha bármilyen észrevételed, vagy kérdésed lenne a kutatással kapcsolatban írj a <a href="mailto:bognar.miklos@ppk.elte.hu">bognar.miklos@ppk.elte.hu</a>címre!</p>`},
 "eng":{
 	"downprobe":"down",
@@ -176,12 +176,12 @@ const experiment_text = {"hun":{
 				First, a prime stimulus will appear on the screen, showing a direction (e.g., “UP”) three times, stacked vertically. Do not respond to this stimulus. 
 				Then the target stimulus will appear only once, which will either be the same (“UP”) or the opposite (“DOWN”) of the previously presented direction. 
 				Your task is to press the corresponding key as <strong>quickly and accurately</strong> as possible to indicate the direction of the target.</p>
-				<p>You will start the experiment with 2000 coins. During the experiment a random generator will change the color of prime stimuli randomly regardless of your performance. The colors will indicate a change in your total coins:
-				When the probe appears in <span style="color: #FF3B3B; font-weight: bold;">red</span>, 17 coins will be deducted from your total. 
-				If the probe is <span style="color: #00E676; font-weight: bold;">green</span>, you will receive a reward of 17 coins.
+				<p>You will start the experiment with {{MONEY}} coins. During the experiment a random generator will change the color of prime stimuli randomly regardless of your performance. The colors will indicate a change in your total coins:
+				When the probe appears in <span style="color: #FF3B3B; font-weight: bold;">red</span>, 47 coins will be deducted from your total. 
+				If the probe is <span style="color: #00E676; font-weight: bold;">green</span>, you will receive a reward of 47 coins.
 				Neutral probe trials are indicated by three colors: <span style="color: #2979FF; font-weight: bold;">blue</span>, <span style="color: #FFD700; font-weight: bold;">yellow</span>, and <span style="color: #E040FB; font-weight: bold;">pink</span>. 
 				No reward or punishment applies to these neutral probe trials.</p>
-				<p>At the end of each block, you will see how many coins you have. At the end of the final block, your score depends on the number of coins: if it is below 2000, you receive 2.5 points, if it is above 2000, you receive 3.5 points. If you finish with exactly 2000 coins, the base score of 3 points remains.</p>
+				<p>At the end of each block, you will see how many coins you have. At the end of the final block, your score depends on the number of coins: if it is below 2000, you receive 2.5 points, if it is above 2000, you receive 3.5 points. If you finish within these limits, the base score of 3 points remains.</p>
 				<h3>Attention: The condition for earning points is that you must correctly answer at least 70% of the stimuli.</h3>
 				<h3>Below 70% performance (too slow, or incorrect answers) will result in 0 points for the experiment. </h3> 
 				<h3>Respond to every target as quickly and accurately as possible regardless of color.</h3>
@@ -200,12 +200,12 @@ const experiment_text = {"hun":{
 				First, a prime stimulus will appear on the screen, showing a direction (e.g., “UP”) three times, stacked vertically. 
 				Then the target stimulus will appear, which will either be the same (“UP”) or the opposite (“DOWN”) of the previously presented direction. 
 				Your task is to press the corresponding key as quickly and accurately as possible to indicate the direction of the target.</p>	
-				<p>You will start the experiment with 2000 coins. During the experiment a random generator will change the color of prime stimuli randomly regardless of your performance. The colors will indicate a change in your total coins:
-				When the prime appears in <span style="color: #FF3B3B; font-weight: bold;">red</span>, 17 coins will be deducted from your total. 
-				If the prime is <span style="color: #00E676; font-weight: bold;">green</span>, you will receive a reward of 17 coins.
+				<p>You will start the experiment with {{MONEY}} coins. During the experiment a random generator will change the color of prime stimuli randomly regardless of your performance. The colors will indicate a change in your total coins:
+				When the prime appears in <span style="color: #FF3B3B; font-weight: bold;">red</span>, 47 coins will be deducted from your total. 
+				If the prime is <span style="color: #00E676; font-weight: bold;">green</span>, you will receive a reward of 47 coins.
 				Neutral prime trials are indicated by three colors: <span style="color: #2979FF; font-weight: bold;">blue</span>, <span style="color: #FFD700; font-weight: bold;">yellow</span>, and <span style="color: #E040FB; font-weight: bold;">pink</span>. 
 				No reward or punishment applies to these neutral prime trials.</p>
-				<p>At the end of each block, you will see how many coins you have. At the end of the final block, your score depends on the number of coins: if it is below 2000, you receive 2.5 points, if it is above 2000, you receive 3.5 points. If you finish with exactly 2000 coins, the base score of 3 points remains. </p>
+				<p>At the end of each block, you will see how many coins you have. At the end of the final block, your score depends on the number of coins: if it is below 2000, you receive 2.5 points, if it is above 2000, you receive 3.5 points. If you finish within these limits, the base score of 3 points remains.</p>
 				<h3>Attention: The condition for earning points is that you must correctly answer at least 70% of the stimuli.</h3>
 				<h3>Below 70% performance (too slow, or incorrect answers) will result in 0 points for the experiment. </h3> 
 				<h3>Respond to every target as quickly and accurately as possible regardless of color.</h3>
@@ -230,8 +230,8 @@ const experiment_text = {"hun":{
 	"practice_feedback_incorrect": `<div style='font-size:35px;'>Incorrect response!</div>`,
 	"practice_end":`<p>The practice block has ended. The main experimental blocks will follow.
 				During the experimental blocks, you will not receive feedback if your response is too slow or incorrect. Try to respond as quickly and accurately as possible!
-				Remember, <span style="color: #FF3B3B; font-weight: bold;">red</span> trials will deduct 17 coins from your total. 
-				<span style="color: #00E676; font-weight: bold;">Green</span> trials will add 17 coins to your total.
+				Remember, <span style="color: #FF3B3B; font-weight: bold;">red</span> trials will deduct 47 coins from your total. 
+				<span style="color: #00E676; font-weight: bold;">Green</span> trials will add 47 coins to your total.
 				When you are ready, press the spacebar to begin.</p>
 				<br> 
 				<img src="images/instruction_pic.png" alt="Hand placement instructions" style="width: 40%; height: auto;"> 
