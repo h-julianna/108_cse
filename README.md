@@ -40,7 +40,7 @@ Conditions are not separated by different experimental blocks, allowing the effe
 
 Before the actual task consisting of 10 blocks, 2 blocks of practice trials must be completed. Evalutative feedback is given here for incorrect/too slow responses. If the proportion of correct responses is under 80%, the practice session restarts.
 
-In the task, each participant starts out with 2000 monetary units (called "garas" in the Hungarian version). Red stimuli indicate the loss of 17 units, while green stimuli indicates the gain of 17 units.
+In the task, each participant starts out with randomised monetary units ranging from 1800 to 2200 (called "garas" in the Hungarian version). Red stimuli indicate the loss of 47 units, while green stimuli indicates the gain of 47 units.
 On a QWERTZ keyboard, the "A" key indicates "LEFT", "L" indicates "RIGHT", "N" indicates "DOWN" and "E" indicates "UP".
 
 ## About the experimental code
