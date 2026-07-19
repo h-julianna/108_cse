@@ -62,8 +62,8 @@ const experiment_text = {"hun":{
                 Ha viszont <span style="color: #00E676; font-weight: bold;">zöld</span> színű célingert látsz, 47 garas a jutalmad. 
                 A neutrális próbákat három szín fogja jelölni: <span style="color: #2979FF; font-weight: bold;">kék</span>, <span style="color: #FFD700; font-weight: bold;">sárga</span> és <span style="color: #E040FB; font-weight: bold;">rózsaszín</span>. Ezeknél a próbáknál sem jutalom, sem büntetés nem jár.</p> 
 								<p>Minden blokk végén látni fogod, mennyi garassal rendelkezel. Az utolsó blokk végén a kísérletért járó pontszám az eredményedtől függ: 1800 garas alatt 2,5 pont, 2200 garas felett 3,5 pont, a kettő között pedig a kiinduló 3 pont marad. </p>
-								<h3>Figyelem: A pontszerzés feltétele, hogy az ingerek minimum 70%-át helyesen megválaszold.</h3>
-								<h3>70%-os teljesítmény alatt (túl lassú, vagy pontatlan válaszoknál) 0 pontot kapsz a kísérletre. </h3>
+								<h3>Figyelem: A pontszerzés feltétele, hogy az ingerek minimum 60%-át helyesen megválaszold.</h3>
+								<h3>60%-os teljesítmény alatt (túl lassú, vagy pontatlan válaszoknál) 0 pontot kapsz a kísérletre. </h3>
                 <p>Kérlek helyezd a billentyűzetre a kezedet a képen látható módon:</p>
                 <p>A bal gyűrűsujjadat tedd az <span class='key'>A</span>-ra. Ez lesz a "BAL" irány. 
                 A jobb gyűrűsujjadat az <span class='key'>L</span>-re, ez fogja jelölni a "JOBB" irányt. 
@@ -82,8 +82,8 @@ const experiment_text = {"hun":{
 <h3>Minden ingerre, minden esetben, a színétől függetlenül válaszolj!</h3>
 <img src="images/probe_press_hun.png" alt="Hand placement instructions" style="width: 40%; height: 40%;">
                 <p> Minden blokk végén látni fogod, mennyi garassal rendelkezel. Az utolsó blokk végén a kísérletért járó pontszám az eredményedtől függ: 1800 garas alatt 2,5 pont, 2200 garas felett 3,5 pont, a kettő között pedig a kiinduló 3 pont marad. </p>
-								<h3>Figyelem: A pontszerzés feltétele, hogy az ingerek minimum 70%-át helyesen megválaszold.</h3>
-								<h3>70%-os teljesítmény alatt (túl lassú, vagy pontatlan válaszoknál) 0 pontot kapsz a kísérletre. </h3>
+								<h3>Figyelem: A pontszerzés feltétele, hogy az ingerek minimum 60%-át helyesen megválaszold.</h3>
+								<h3>60%-os teljesítmény alatt (túl lassú, vagy pontatlan válaszoknál) 0 pontot kapsz a kísérletre. </h3>
                 <p>Kérlek helyezd a billentyűzetre a kezedet a képen látható módon:</p>
                 <p>A bal gyűrűsujjadat tedd az <span class='key'>A</span>-ra. Ez lesz a "BAL" irány. 
                 A jobb gyűrűsujjadat az <span class='key'>L</span>-re, ez fogja jelölni a "JOBB" irányt. 
@@ -92,8 +92,7 @@ const experiment_text = {"hun":{
                 <img src="images/instruction_pic.png" alt="Hand placement instructions" style="width: 40%; height: 40%;">
                 <p style="text-align: center;"><em>Amennyiben készen állsz a kísérlet megkezdésére, nyomd meg a space billentyűt!</em></p>`,
 "practice_instruction":`<h2>Gyakorló blokk</h2>
-            	<p>A kísérlet megkezdése előtt egy rövid gyakorló blokk következik. 
-            	A próbák 80%-át jól kell teljesítened, különben a gyakorlás újra indul. Törekedj a minél gyorsabb és pontosabb válaszadásra! <br> Ha készen állsz, nyomj meg egy tetszőleges billentyűt a kezdéshez.</p>`,
+            	<p>A kísérlet megkezdése előtt egy rövid gyakorló blokk következik. A próbák 80%-át jól kell teljesítened, különben a gyakorlás újraindul. Törekedj a minél gyorsabb és pontosabb válaszadásra! Ha készen állsz, nyomj meg egy tetszőleges billentyűt a kezdéshez.</p>`,
 	"practice_intermission":`<div style="text-align: center; max-width: 800px
 	; margin: auto; font-size: 24px;">
 				<p>Még egy rövid gyakorló blokk következik.<br>
@@ -182,8 +181,8 @@ const experiment_text = {"hun":{
 				Neutral probe trials are indicated by three colors: <span style="color: #2979FF; font-weight: bold;">blue</span>, <span style="color: #FFD700; font-weight: bold;">yellow</span>, and <span style="color: #E040FB; font-weight: bold;">pink</span>. 
 				No reward or punishment applies to these neutral probe trials.</p>
 				<p>At the end of each block, you will see how many coins you have. At the end of the final block, your score depends on the number of coins: if it is below 2000, you receive 2.5 points, if it is above 2000, you receive 3.5 points. If you finish within these limits, the base score of 3 points remains.</p>
-				<h3>Attention: The condition for earning points is that you must correctly answer at least 70% of the stimuli.</h3>
-				<h3>Below 70% performance (too slow, or incorrect answers) will result in 0 points for the experiment. </h3> 
+				<h3>Attention: The condition for earning points is that you must correctly answer at least 60% of the stimuli.</h3>
+				<h3>Below 60% performance (too slow, or incorrect answers) will result in 0 points for the experiment. </h3> 
 				<h3>Respond to every target as quickly and accurately as possible regardless of color.</h3>
 <img src="images/probe_press_eng.png" alt="Hand placement instructions" style="width: 40%; height: 40%;">
 
@@ -206,8 +205,8 @@ const experiment_text = {"hun":{
 				Neutral prime trials are indicated by three colors: <span style="color: #2979FF; font-weight: bold;">blue</span>, <span style="color: #FFD700; font-weight: bold;">yellow</span>, and <span style="color: #E040FB; font-weight: bold;">pink</span>. 
 				No reward or punishment applies to these neutral prime trials.</p>
 				<p>At the end of each block, you will see how many coins you have. At the end of the final block, your score depends on the number of coins: if it is below 2000, you receive 2.5 points, if it is above 2000, you receive 3.5 points. If you finish within these limits, the base score of 3 points remains.</p>
-				<h3>Attention: The condition for earning points is that you must correctly answer at least 70% of the stimuli.</h3>
-				<h3>Below 70% performance (too slow, or incorrect answers) will result in 0 points for the experiment. </h3> 
+				<h3>Attention: The condition for earning points is that you must correctly answer at least 60% of the stimuli.</h3>
+				<h3>Below 60% performance (too slow, or incorrect answers) will result in 0 points for the experiment. </h3> 
 				<h3>Respond to every target as quickly and accurately as possible regardless of color.</h3>
 <img src="images/probe_press_eng.png" alt="Hand placement instructions" style="width: 40%; height: 40%;">
 
@@ -219,8 +218,7 @@ const experiment_text = {"hun":{
 				<img src="images/instruction_pic.png" alt="Hand placement instructions" style="width: 40%; height: 40%;">
 				<p style="text-align: center;"><em>When you are ready to begin the experiment, press the spacebar!</em></p>`,
 	"practice_instruction":`<h2>Practice Block</h2>
-				<p>Before the main experiment begins, you will complete a short practice block. 
-				You must correctly complete at least 80% of the trials, otherwise the practice block will start over. Try to respond as quickly and accurately as possible! <br> When you are ready, press any key to begin.</p>`,
+				<p>Before the main experiment begins, you will complete a short practice block. You must correctly complete at least 80% of the trials, otherwise the practice block will start over. Try to respond as quickly and accurately as possible! When you are ready, press any key to begin.</p>`,
 	"practice_intermission":`<div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px">
 				<p>Another short practice block will follow. <br> Try to respond as quickly and accurately as possible!<br>
 				When you are ready, press any key to begin.</p>

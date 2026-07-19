@@ -7,7 +7,8 @@ const manipulation_trials = {
         "correct_response": "n",
         "name": "magenta_vertical_con_1",
         "monetary": 0,
-        "color": "magenta"
+        "color": "magenta",
+        "manip": 1
       },
       {
         "prime": "leftprime",
@@ -16,7 +17,8 @@ const manipulation_trials = {
         "correct_response": "l",
         "name": "blue_horizontal_incon_1",
         "color": "blue",
-        "monetary": 0
+        "monetary": 0,
+        "manip": 1
       },
       {
         "prime": "downprime",
@@ -25,7 +27,8 @@ const manipulation_trials = {
         "correct_response": "e",
         "name": "yellow_vertical_incon_2",
         "color": "yellow",
-        "monetary": 0
+        "monetary": 0,
+        "manip": 1
       }
 ],
   "negative_mani": [
@@ -36,7 +39,8 @@ const manipulation_trials = {
         "correct_response": "a",
         "name": "red_horizontal_incon_2",
         "color": "red",
-        "monetary": 1
+        "monetary": 1,
+        "manip": 1
       },
       {
         "prime": "upprime",
@@ -45,7 +49,8 @@ const manipulation_trials = {
         "correct_response": "e",
         "name": "red_vertical_con_2",
         "color": "red",
-        "monetary": 1
+        "monetary": 1,
+        "manip": 1
       },
       {
         "prime": "leftprime",
@@ -54,7 +59,8 @@ const manipulation_trials = {
         "correct_response": "a",
         "name": "red_horizontal_con_1",
         "monetary": 1,
-        "color": "red"
+        "color": "red",
+        "manip": 1
       }
   ],
 "positive_mani": [
@@ -65,7 +71,8 @@ const manipulation_trials = {
         "correct_response": "a",
         "name": "green_horizontal_incon_2",
         "color": "green",
-        "monetary": 1
+        "monetary": 1,
+        "manip": 1
       },
       {
         "prime": "upprime",
@@ -74,7 +81,8 @@ const manipulation_trials = {
         "correct_response": "e",
         "name": "green_vertical_con_2",
         "color": "green",
-        "monetary": 1
+        "monetary": 1,
+        "manip": 1
       },
       {
         "prime": "leftprime",
@@ -83,7 +91,8 @@ const manipulation_trials = {
         "correct_response": "a",
         "name": "green_horizontal_con_1",
         "monetary": 1,
-        "color": "green"
+        "color": "green",
+        "manip": 1
       }
   ],
 }

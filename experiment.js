@@ -8,7 +8,7 @@ let urlParams = new URLSearchParams(queryString);
 
 
 //Initialize jsPsych
-    const jsPsych = initJsPsych({ 
+    const jsPsych = initJsPsych({
         on_finish: () => {
             try {jatos.endStudyAndRedirect(
                     "link here", 
@@ -426,25 +426,63 @@ const experimental_blocks = randomized_stimuli_per_participant.map(
         }
     })
 );
+
 //// MANIPULATION CHECKS
+//timer (combined)
+let manip_time_left = 60;
+let manip_interval = null;
+let manip_timer_expired = false;
+
 var manipulation_check_instructions = {
         type: jsPsychHtmlButtonResponse,
         stimulus: function ( ) {
           if (lang === "hun") {
         return `<p>Most arra vagyunk kíváncsiak, hogyan érzed magad a következő három inger láttán!
-        Kérjük válaszolj a következő három ingerre, ahogy eddig is tetted!</p>`}  
-          if (lang === "eng") {
+        Kérjük válaszolj a következő három ingerre, ahogy eddig is tetted! A válaszra, illetve az ingerek értékelésére 1 perc áll rendelkezésedre.</p> <!-- szájbarágós de muszáj -->
+        <p id="manip-timer" style="font-size: 28px; color: darkred;"></p>`}
+            if (lang === "eng") {
         return `<p>Now we would like to find out how you feel when you see the following three stimuli!
-        Please respond to the following three stimuli, like you did beforehand!</p>`;
+        Please respond to the following three stimuli, like you did beforehand! You will have 1 minute to respond to and evaluate the stimuli. </p>
+        <p id="manip-timer" style="font-size: 28px; color: darkred;"></p>`;
       }
     },
         choices: [experiment_text[lang]["button_press"]],
+        on_start: function() { //so time remaining doesn't carry over to new checks
+            if (manip_interval !== null) {
+                clearInterval(manip_interval);
+                manip_interval = null
+            }
+            manip_time_left = debug ? 10 : 60; //debug is 1 normally, set to 10 for demo purposes
+            manip_timer_expired = false;
+        },
+        on_load: function() {
+            if (manip_interval === null) {
+                const tick = () => {
+                    const display = document.getElementById('manip-timer');
+                    if (display) {
+                        display.textContent = lang === "hun"
+                        ? `Hátralévő idő: ${manip_time_left}`
+                        : `Time remaining: ${manip_time_left}`;
+                    }
+                    if (manip_time_left <= 0) {
+                        clearInterval(manip_interval);
+                        manip_interval = null;
+                        manip_timer_expired = true;
+                        jsPsych.finishTrial();
+                        return;
+                    }
+                    manip_time_left--;
+                };
+                tick();
+                manip_interval = setInterval(tick, 1000);
+            }
+        },
         data: {
-            task: 'manipulation_check_instructions'
+            task: 'manipulation_check_instructions',
+            manip: 1
         }
       };
 
-//trying to change the instruction based on the color of the stimuli
  var valence_check = {
         type: jsPsychHtmlSliderResponse,
         stimulus: function() {
@@ -467,6 +505,7 @@ var manipulation_check_instructions = {
         slider_width: 500,
         require_movement: true,
         button_label: [experiment_text[lang]["button_press"]],
+        prompt: `<p id ="manip-timer" style="font-size: 28px; color: darkred;"></p>`,
         data: {
             task: 'valence_check',
         },
@@ -481,14 +520,14 @@ var arousal_check = {
         type: jsPsychHtmlSliderResponse,
         stimulus: function() {
           if (lang === "hun") {
-         return `<p>Kérjük, jelöld be az alábbi csúszkán, hogy mennyire érezted magad nyugodtnak vagy izgatottnak/idegesnek az előbb látott három inger közben.</p>`}
+         return `<p>Kérjük, jelöld be az alábbi csúszkán, hogy mennyire érezted magad nyugodtnak vagy izgatottnak/idegesnek az előbb látott három inger közben.</p>`} //Mennyire érezted magad felélénkülve az előtt látott három inger közben
          if (lang === "eng") {
-        return `<p>Please indicate on the slider below, how calm or excited/anxious you felt during the previous three stimuli.</p>`;
+        return `<p>Please indicate on the slider below, how calm or excited/anxious you felt during the previous three stimuli.</p>`; //How energized you felt
         }
       },
         labels: [
           lang === "hun" ? '-50 (nagyon nyugodt)' : '-50 (extremely calm)',
-          lang === "hun" ? '50 (nagyon izgatott/ideges)' : '50 (extremely excited/anxious)'
+          lang === "hun" ? '50 (nagyon izgatott/ideges)' : '50 (extremely excited/anxious)' //nagyon felélénkülve, extremely energized
         ],
         max_label: 50,
         min: -50,
@@ -498,6 +537,7 @@ var arousal_check = {
         slider_width: 500,
         require_movement: true,
         button_label: [experiment_text[lang]["button_press"]],
+        prompt: `<p id="manip-timer" style="font-size: 28px; color: darkred;"></p>`,
         data: {
             task: 'arousal_check',
         },
@@ -519,7 +559,7 @@ var manipulation_trial_list = [
 	manipulation_trials.positive_mani,
 	manipulation_trials.positive_mani,
 	manipulation_trials.positive_mani,
-]
+],
 
 shuffled_mani_list = jsPsych.randomization.sampleWithoutReplacement(manipulation_trial_list, 9)
 console.log("Manipulation shuffled list:", shuffled_mani_list);
@@ -568,6 +608,86 @@ const block_intermission = {
   }
 };
 
+//progress bar:)
+function render_progress_bar(completed_blocks, total_blocks) {
+    const label = lang === "eng"
+        ? `Block ${completed_blocks} of ${total_blocks} completed`
+        : `${completed_blocks}/${total_blocks} blokk teljesítve`;
+    return `
+      <div style="max-width:500px; margin: 30px auto 0 auto;">
+        <div style="font-size:16px; margin-bottom:6px;">${label}</div>
+        <div style="width:100%; height:22px; background:transparent; border:#ffff; box-shadow:0 0 0 2px black; border-radius:11px; overflow:hidden; box-sizing:border-box;">
+          <div id="progress-fill" style="width:0%; height:100%; background:#ffff; border-radius:9px; transition: width 1.2s ease;"></div>
+        </div>
+      </div>`;
+}
+
+const total_blocks = experimental_blocks.length;
+function make_block_intermission(block_index) {
+  const completed = block_index + 1;
+  return {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: function() {
+      const money_color = money < 2000 ? "#FF3B3B" : (money > 2000 ? "#28a745" : "#ffffff");
+            const progress_html = render_progress_bar(completed, total_blocks);
+      const halfway_html = completed === Math.ceil(total_blocks / 2)
+        ? (lang === "eng"
+            ? `<p style="margin-top:20px; font-size:16px;">You are halfway through the experiment. Thank you for contributing to our research with your participation!</p>`
+            : `<p style="margin-top:20px; font-size:16px;">A kísérlet felénél tartasz. Köszönjük, hogy részvételeddel hozzájárulsz a kutatásunkhoz!</p>`)
+        : '';
+      if (lang === "eng") {
+          return `
+        <div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px">
+          <p><strong>End of block.</strong></p>
+          <p>You currently have <strong style="color: ${money_color};">${money} coins</strong>. When you are ready, press any key to continue.</p>
+          <p>Take a short break, then press any key to start the next block. Try to respond as quickly and accurately as possible!</p>
+          <p><strong>The next block will automatically start in 2 minutes.</strong></p>
+          <p id="timer" style="font-size: 28px; color: darkred;">Starting in: 2:00</p>
+          ${progress_html}
+          ${halfway_html}
+        </div>`;
+      }     
+      return `
+        <div style="text-align: center; max-width: 800px; margin: auto; font-size: 24px">
+          <p><strong>Blokk vége.</strong></p>
+          <p>Összesen <strong style="color: ${money_color};">${money} garasod</strong> van.</p>
+          <p>Pihenj egy kicsit, majd nyomj meg egy billentyűt a következő blokk kezdéséhez. Törekedj a minél gyorsabb és pontosabb válaszadásra!</p>
+          <p><strong>A következő blokk automatikusan elindul 2 perc múlva.</strong></p>
+          <p id="timer" style="font-size: 28px; color: darkred;">Kezdés: 2:00</p>
+          ${progress_html}
+          ${halfway_html}
+        </div>`;
+    },
+    choices: debug ? "NO_KEYS" : "ALL_KEYS",
+    trial_duration: debug ? 1 : 120000,
+    on_load: function() {
+      const fill = document.getElementById('progress-fill');
+      if (fill) {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            fill.style.width = `${(completed / total_blocks) * 100}%`;
+          });
+        });
+      }
+      if (debug) return;
+      let timeLeft = debug ? 1 : 120;
+      const timerDisplay = document.getElementById('timer');
+      const countdown = setInterval(() => {
+        timeLeft--;
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timerDisplay.textContent = `Kezdés: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+        if (timeLeft <= 0) clearInterval(countdown);
+      }, 1000);
+    },
+    data: {
+      task: 'intermission',
+      block_completed: completed,
+      money: function() { return money; }
+    }
+  };
+}
+
 //Full experiment timeline
 const full_experiment = [];
 experimental_blocks.forEach((block, index) => {
@@ -579,15 +699,25 @@ experimental_blocks.forEach((block, index) => {
             {
                 timeline: [fixation, prime, blank, probe],
                 timeline_variables: shuffled_mani_list[index],
-                randomize_order: false
+                randomize_order: false,
+                conditional_function: () => !manip_timer_expired, //if time expires, skips over whole thing
+                data: {
+                    manip: 1
+                }
             },
-            valence_check,
-            arousal_check
-        ]
+            {
+            timeline: [valence_check],
+            conditional_function: () => !manip_timer_expired
+        },
+        {
+            timeline: [arousal_check],
+            conditional_function: () => !manip_timer_expired
+        }
+    ],
     });
 }
     if (index < experimental_blocks.length - 1) {
-        full_experiment.push(block_intermission);
+        full_experiment.push(make_block_intermission(index));
     }
 });
 
