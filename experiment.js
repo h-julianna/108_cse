@@ -429,7 +429,7 @@ const experimental_blocks = randomized_stimuli_per_participant.map(
 
 //// MANIPULATION CHECKS
 //timer (combined)
-let manip_time_left = 60;
+let manip_time_left = 120;
 let manip_interval = null;
 let manip_timer_expired = false;
 
@@ -438,11 +438,11 @@ var manipulation_check_instructions = {
         stimulus: function ( ) {
           if (lang === "hun") {
         return `<p>Most arra vagyunk kíváncsiak, hogyan érzed magad a következő három inger láttán!
-        Kérjük válaszolj a következő három ingerre, ahogy eddig is tetted! A válaszra, illetve az ingerek értékelésére 1 perc áll rendelkezésedre.</p> <!-- szájbarágós de muszáj -->
+        Kérjük válaszolj a következő három ingerre, ahogy eddig is tetted! A válaszra, illetve az ingerek értékelésére 2 perc áll rendelkezésedre.</p> <!-- szájbarágós de muszáj -->
         <p id="manip-timer" style="font-size: 28px; color: darkred;"></p>`}
             if (lang === "eng") {
         return `<p>Now we would like to find out how you feel when you see the following three stimuli!
-        Please respond to the following three stimuli, like you did beforehand! You will have 1 minute to respond to and evaluate the stimuli. </p>
+        Please respond to the following three stimuli, like you did beforehand! You will have 2 minute to respond to and evaluate the stimuli. </p>
         <p id="manip-timer" style="font-size: 28px; color: darkred;"></p>`;
       }
     },
@@ -452,17 +452,20 @@ var manipulation_check_instructions = {
                 clearInterval(manip_interval);
                 manip_interval = null
             }
-            manip_time_left = debug ? 10 : 60; //debug is 1 normally, set to 10 for demo purposes
+            manip_time_left = debug ? 120 : 120; //debug is 1 normally, set to 10 for demo purposes
             manip_timer_expired = false;
         },
         on_load: function() {
             if (manip_interval === null) {
+                manip_time_left--;
                 const tick = () => {
+                    const manipminutes = Math.floor(manip_time_left / 60);
+                    const manipseconds = manip_time_left % 60;
                     const display = document.getElementById('manip-timer');
                     if (display) {
                         display.textContent = lang === "hun"
-                        ? `Hátralévő idő: ${manip_time_left}`
-                        : `Time remaining: ${manip_time_left}`;
+                        ? `Hátralévő idő: ${manipminutes}:${manipseconds.toString().padStart(2, '0')}`
+                        : `Time remaining:  ${manipminutes}:${manipseconds.toString().padStart(2, '0')}`;
                     }
                     if (manip_time_left <= 0) {
                         clearInterval(manip_interval);
@@ -470,8 +473,8 @@ var manipulation_check_instructions = {
                         manip_timer_expired = true;
                         jsPsych.finishTrial();
                         return;
-                    }
-                    manip_time_left--;
+                     }
+                     manip_time_left--;
                 };
                 tick();
                 manip_interval = setInterval(tick, 1000);
@@ -520,14 +523,14 @@ var arousal_check = {
         type: jsPsychHtmlSliderResponse,
         stimulus: function() {
           if (lang === "hun") {
-         return `<p>Kérjük, jelöld be az alábbi csúszkán, hogy mennyire érezted magad nyugodtnak vagy izgatottnak/idegesnek az előbb látott három inger közben.</p>`} //Mennyire érezted magad felélénkülve az előtt látott három inger közben
+         return `<p>Kérjük, jelöld be az alábbi csúszkán, hogy mennyire érezted magad nyugodtnak vagy élénknek az előbb látott három inger közben.</p>`}
          if (lang === "eng") {
-        return `<p>Please indicate on the slider below, how calm or excited/anxious you felt during the previous three stimuli.</p>`; //How energized you felt
+        return `<p>Please indicate on the slider below, how calm or alert you felt during the previous three stimuli.</p>`;
         }
       },
         labels: [
           lang === "hun" ? '-50 (nagyon nyugodt)' : '-50 (extremely calm)',
-          lang === "hun" ? '50 (nagyon izgatott/ideges)' : '50 (extremely excited/anxious)' //nagyon felélénkülve, extremely energized
+          lang === "hun" ? '50 (nagyon élénk)' : '50 (extremely alert)'
         ],
         max_label: 50,
         min: -50,
