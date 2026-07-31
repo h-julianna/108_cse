@@ -434,19 +434,19 @@ let manip_interval = null;
 let manip_timer_expired = false;
 
 var manipulation_check_instructions = {
-        type: jsPsychHtmlButtonResponse,
+        type: jsPsychHtmlKeyboardResponse,
         stimulus: function ( ) {
           if (lang === "hun") {
         return `<p>Most arra vagyunk kíváncsiak, hogyan érzed magad a következő három inger láttán!
-        Kérjük válaszolj a következő három ingerre, ahogy eddig is tetted! A válaszra, illetve az ingerek értékelésére 2 perc áll rendelkezésedre.</p> <!-- szájbarágós de muszáj -->
+        Kérjük válaszolj a következő három ingerre, ahogy eddig is tetted! A válaszra, illetve az ingerek értékelésére 2 perc áll rendelkezésedre. Kérjük helyezd a billentyűzetre a kezed, majd a space billentyű megnyomásával folytasd.</p> <!-- szájbarágós de muszáj -->
         <p id="manip-timer" style="font-size: 28px; color: darkred;"></p>`}
             if (lang === "eng") {
         return `<p>Now we would like to find out how you feel when you see the following three stimuli!
-        Please respond to the following three stimuli, like you did beforehand! You will have 2 minute to respond to and evaluate the stimuli. </p>
+        Please respond to the following three stimuli, like you did beforehand! You will have 2 minute to respond to and evaluate the stimuli. Please place your hand on the keyboard, then press the space bar to proceed.</p>
         <p id="manip-timer" style="font-size: 28px; color: darkred;"></p>`;
       }
     },
-        choices: [experiment_text[lang]["button_press"]],
+        choices: [" "],
         on_start: function() { //so time remaining doesn't carry over to new checks
             if (manip_interval !== null) {
                 clearInterval(manip_interval);
