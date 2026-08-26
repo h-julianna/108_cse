@@ -23,7 +23,10 @@ const experiment_text = {"hun":{
                  <ul>
                     <li>önként veszek részt.</li>
                     <li>a vizsgálat jellegéről, annak megkezdése előtt kielégítő tájékoztatást kaptam.</li>
+					<li>elmúltam 18 éves.</li>
                     <li>a vizsgálat idején alkohol vagy drogok hatása alatt nem állok.</li>
+					<li>pszichiátriai betegségben nem szenvedek.</li>
+					<li>nem vagyok színtévesztő.</li>
                  </ul>
                 <p>Tudomásul veszem, hogy az azonosításomra alkalmas személyi adataimat bizalmasan kezelik.
                     Hozzájárulok ahhoz, hogy a vizsgálat során a rólam felvett, személyem azonosítására nem alkalmas adatok más kutatók számára is hozzáférhetők legyenek.
@@ -138,8 +141,10 @@ const experiment_text = {"hun":{
 				<ul>
 				<li>I am participating voluntarily.</li>
 				<li>I received adequate information about the nature of the study prior to its commencement.</li>
+				<li>I am over 18 years of age.</li>
 				<li>I do not suffer from any psychiatric disorder.</li>
 				<li>I am not under the influence of alcohol or drugs at the time of the study.</li>
+				<li>I am not colorblind.</li>
 				</ul>
 				<p>I acknowledge that my personal data suitable for identification will be treated confidentially.
 				I consent to the use of the data collected about me during the study that do not allow for my personal identification to be made available to other researchers.
